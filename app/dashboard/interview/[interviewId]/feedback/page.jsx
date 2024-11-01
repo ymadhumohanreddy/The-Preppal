@@ -11,8 +11,9 @@ import {
 import { ChevronsUpDown } from 'lucide-react';
 import { Button } from '../../../../../components/ui/button';
 import { useRouter } from 'next/navigation';
+import Interview from '../page';
 
-function Feedback({ params: paramsPromise }) {
+function Feedback({ params: paramsPromise,interview }) {
   const params = use(paramsPromise); // Unwrap params
   const [feedbackList, setFeedbackList] = useState([]);
   const router = useRouter(); // Use the router here
@@ -63,8 +64,8 @@ function Feedback({ params: paramsPromise }) {
       <div className='gap-5'>
 
       
-      <Button className='bg-blue-400 hover:bg-green-600 transition-all mt-3'onClick={() => router.replace('/dashboard')}>New Interview</Button>
-      <Button className='bg-blue-400 hover:bg-red-600 transition-all  mt-3 ml-5'onClick={() => router.replace('/dashboard/interview/'+interview?.mockId)}>Retry</Button>
+      <Button className='bg-blue-400 hover:bg-green-600 transition-all mt-3'onClick={() => router.replace('http://localhost:3000/dashboard')}>New Interview</Button>
+      
       </div>
     </div>
   );

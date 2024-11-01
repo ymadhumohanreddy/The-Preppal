@@ -37,14 +37,13 @@ function RecordAnsSection({ mockInterviewQuestion, activeQuestionIndex, intervie
     if (!isRecording && userAnswer.length > 10) {
       UpdateUserAnswer();
     }
-    
   }, [isRecording, userAnswer]);
 
   const StartStopRecording = async () => {
     if (isRecording) {
       stopSpeechToText();
-      if(userAnswer?.length<10){
-        toast("Bro c'mon,Can't you speak 10 words atleast!!")
+      if (userAnswer.length < 10) {
+        toast("Bro c'mon, cant you speak 10 words atleast");
         return;
       }
     } else {
@@ -55,13 +54,12 @@ function RecordAnsSection({ mockInterviewQuestion, activeQuestionIndex, intervie
   const UpdateUserAnswer = async () => {
     console.log(userAnswer);
     setLoading(true);
-    
+
     const feedbackPrompt = `Question: ${mockInterviewQuestion[activeQuestionIndex]?.question}, User Answer: ${userAnswer}, Depends on question ans user answer for give interview question. Please give us rating for answer and feedback as area of improvement if any in just 3 to 5 lines to improve it in JSON format with rating field and feedback field.`;
 
     try {
       const result = await chatSession.sendMessage(feedbackPrompt);
 
-      
       if (result && result.response && typeof result.response.text === 'function') {
         const mockJsonResp = (await result.response.text()).replace(/```json|```/g, "").trim();
         const JsonFeedbackResp = JSON.parse(mockJsonResp);
@@ -78,17 +76,20 @@ function RecordAnsSection({ mockInterviewQuestion, activeQuestionIndex, intervie
         });
 
         if (resp) {
-          toast('User Answer recorded successfully');
+          toast('User Answer recorded successfully', {
+            position: 'top-center', // Position the toast at the top center
+            autoClose: 3000, // Toast will close after 3 seconds
+          });
           setUserAnswer('');
-          setResults([]);
-
+          setResults([]); // Reset only if the response is successful
         }
-         setResults([]);
-         setLoading(false);
       }
     } catch (error) {
       console.error('Error in UpdateUserAnswer:', error);
-      toast('Error processing your answer. Please try again.');
+      toast('Error processing your answer. Please try again.', {
+        position: 'top-center', // Position error toast at the top center
+        autoClose: 3000, // Toast will close after 3 seconds
+      });
     } finally {
       setLoading(false);
     }
@@ -130,8 +131,6 @@ function RecordAnsSection({ mockInterviewQuestion, activeQuestionIndex, intervie
           </h2> 
         )}
       </Button>
-      
-      
     </div>
   );
 }
