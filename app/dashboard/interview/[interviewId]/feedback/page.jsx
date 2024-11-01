@@ -11,17 +11,16 @@ import {
 import { ChevronsUpDown } from 'lucide-react';
 import { Button } from '../../../../../components/ui/button';
 import { useRouter } from 'next/navigation';
-import Interview from '../page';
 
-function Feedback({ params: paramsPromise,interview }) {
-  const params = use(paramsPromise); // Unwrap params
+function Feedback({ params }) {
   const [feedbackList, setFeedbackList] = useState([]);
-  const router = useRouter(); // Use the router here
+  const router = useRouter();
 
   useEffect(() => {
-    console.log(params.interviewId);
-    GetFeedback();
-  }, [params.interviewId]); // Add params.interviewId as a dependency
+    if (params.interviewId) {
+      GetFeedback();
+    }
+  }, [params.interviewId]);
 
   const GetFeedback = async () => {
     const result = await db
@@ -30,22 +29,22 @@ function Feedback({ params: paramsPromise,interview }) {
       .where(eq(UserAnswer.mockIdRef, params.interviewId))
       .orderBy(UserAnswer.id);
 
-    console.log("Feedback Results:", result); // Log the results to check
+    console.log("Feedback Results:", result);
     setFeedbackList(result);
   };
 
   return (
     <div className='p-10'>
       {feedbackList.length === 0 ? (
-        <h2 className='font-serif  text-xl text-gray-500'>No Interview Feedback Record Found</h2>
+        <h2 className='font-serif text-xl text-gray-500'>No Interview Feedback Record Found</h2>
       ) : (
         <>
-          <h2 className='text-3xl font-serif  text-green-500'>Congratulations!</h2>
-          <h2 className='font-serif  text-2xl'>Here is your interview feedback</h2>
+          <h2 className='text-3xl font-serif text-green-500'>Congratulations!</h2>
+          <h2 className='font-serif text-2xl'>Here is your interview feedback</h2>
           <h2 className='text-sm text-gray-500'>Find below interview questions with correct answers, your answers, and feedback for improvement:</h2>
           
           {feedbackList.map((item) => (
-            <Collapsible key={item.id} className='mt-7'> {/* Use item.id if it's unique */}
+            <Collapsible key={item.id}>
               <CollapsibleTrigger className='p-2 bg-secondary rounded-lg flex justify-between my-2 text-left gap-7 w-full'>
                 {item.question} <ChevronsUpDown className='h-5 w-5' />
               </CollapsibleTrigger>
@@ -62,10 +61,7 @@ function Feedback({ params: paramsPromise,interview }) {
         </>
       )}
       <div className='gap-5'>
-
-      
-      <Button className='bg-blue-400 hover:bg-green-600 transition-all mt-3'onClick={() => router.replace('http://localhost:3000/dashboard')}>New Interview</Button>
-      
+        <Button className='bg-blue-400 hover:bg-green-600 transition-all mt-3' onClick={() => router.replace('/dashboard')}>New Interview</Button>
       </div>
     </div>
   );
