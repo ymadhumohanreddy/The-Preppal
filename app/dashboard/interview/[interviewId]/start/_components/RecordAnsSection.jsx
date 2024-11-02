@@ -42,10 +42,7 @@ function RecordAnsSection({ mockInterviewQuestion, activeQuestionIndex, intervie
   const StartStopRecording = async () => {
     if (isRecording) {
       stopSpeechToText();
-      if (userAnswer.length < 10) {
-        toast("Bro c'mon, cant you speak 10 words atleast");
-        return;
-      }
+      
     } else {
       startSpeechToText();
     }
