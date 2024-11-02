@@ -34,25 +34,25 @@ function Interview({ params: paramsPromise }) {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
         <div className="flex flex-col my-5 gap-6 font-sans">
           <div className="flex flex-col p-5 rounded-lg border gap-5">
-            <h2 className="text-lg font-medium">
+            <h2 className=" font-serif text-lg font-medium">
               <strong>Job Role/Job Position:</strong>{" "}
               {interviewData ? interviewData.jobPosition : "Loading"}
             </h2>
-            <h2 className="text-lg font-medium">
+            <h2 className="font-serif text-lg font-medium">
               <strong>Job Description/Tech Stack:</strong>{" "}
               {interviewData ? interviewData.jobDesc : "Loading"}
             </h2>
-            <h2 className="text-lg font-medium">
+            <h2 className="font-serif text-lg font-medium">
               <strong>Years of Experience:</strong>{" "}
               {interviewData ? interviewData.jobExperience : "Loading"}
             </h2>
           </div>
-          <div className="p-5 border rounded-lg border-[#4AA0E7] bg-blue-100">
+          <div className="font-serif p-5 border rounded-lg border-[#4AA0E7] bg-blue-100">
             <h2 className="flex gap-2 items-center text-blue-600 ">
               <Lightbulb />
               <strong>Information</strong>
             </h2>
-            <h2 className="mt-3 text-blue-600">
+            <h2 className=" font-serif mt-3 text-blue-600">
               {process.env.NEXT_PUBLIC_INFORMATION}
             </h2>
           </div>
@@ -77,7 +77,7 @@ function Interview({ params: paramsPromise }) {
               />
               <div className="flex justify-center items-center my-1">
                 <Button
-                  className="w-full hover:bg-[#8cbbe2]"
+                  className="w-full hover:bg-[#8cbbe2] hover:text-white font-serif"
                   variant="ghost"
                   onClick={() => setWebCamEnabled(true)}
                 >
@@ -90,7 +90,7 @@ function Interview({ params: paramsPromise }) {
       </div>
       <div className="flex justify-end items-end">
         <Link href={`/dashboard/interview/${params.interviewId}/start`}>
-          <Button className="bg-[#5698ce] text-white hover:bg-blue-600">
+          <Button className="bg-[#5698ce] text-white hover:bg-blue-600 font-serif">
             Start Interview
           </Button>
         </Link>

@@ -41,7 +41,7 @@ function StartInterview({ params }) {
 
   return (
     <div>
-      <div className='grid grid-cols-1 md:grid-cols-2 gap-10'>
+      <div className='font-serif grid grid-cols-1 md:grid-cols-2 gap-10'>
         <QuestionsSection
           mockInterviewQuestion={mockInterviewQuestion}
           activeQuestionIndex={activeQuestionIndex}
@@ -57,13 +57,13 @@ function StartInterview({ params }) {
       </div>
       <div className='flex justify-end gap-6'>
        {activeQuestionIndex>0&& 
-       <Button className="bg-blue-400 hover:bg-green-700"onClick={()=>setActiveQuestionIndex(activeQuestionIndex-1)}>Previous Question</Button>}
+       <Button className="bg-blue-400 hover:bg-green-700 font-serif"onClick={()=>setActiveQuestionIndex(activeQuestionIndex-1)}>Previous Question</Button>}
         {activeQuestionIndex!=mockInterviewQuestion?.length-1&&
-        <Button className="bg-blue-400 hover:bg-blue-700" onClick={()=>setActiveQuestionIndex(activeQuestionIndex+1)}>Next Question</Button>}
+        <Button className="bg-blue-400 hover:bg-blue-700 font-serif" onClick={()=>setActiveQuestionIndex(activeQuestionIndex+1)}>Next Question</Button>}
         {activeQuestionIndex==mockInterviewQuestion?.length-1&&
 
         <Link href={'/dashboard/interview/'+interviewData?.mockId+"/feedback"}>
-        <Button className="bg-blue-400 hover:bg-red-700">End Interview</Button>
+        <Button className="bg-blue-400 hover:bg-red-700 font-serif">End Interview</Button>
         </Link>}
       </div>
     </div>

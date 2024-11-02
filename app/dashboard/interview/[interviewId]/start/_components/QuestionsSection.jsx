@@ -76,12 +76,12 @@ function QuestionsSection({ mockInterviewQuestion, activeQuestionIndex, onQuesti
         }} 
       />
 
-      <div className='p-5 border rounded-lg border-[#4AA0E7] bg-blue-100 mt-20'>
+      <div className='font-serif p-5 border rounded-lg border-[#4AA0E7] bg-blue-100 mt-20'>
         <h2 className='flex gap-2 items-center text-blue-600'>
           <Lightbulb />
           <strong>Note:</strong>
         </h2>
-        <h2 className='mt-3 text-blue-600 text-sm'>
+        <h2 className='mt-3 font-serif text-blue-600 text-sm'>
           {process.env.NEXT_PUBLIC_QUESTION_NOTE}
         </h2>
       </div>

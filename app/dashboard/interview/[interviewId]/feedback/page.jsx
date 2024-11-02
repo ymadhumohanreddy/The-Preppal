@@ -2,7 +2,7 @@
 import { db } from '../../../../../utils/db';
 import { UserAnswer } from '../../../../../utils/schema';
 import { eq } from 'drizzle-orm';
-import React, { use, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   Collapsible,
   CollapsibleContent,
@@ -17,20 +17,36 @@ function Feedback({ params }) {
   const router = useRouter();
 
   useEffect(() => {
-    if (params.interviewId) {
-      GetFeedback();
+    const fetchFeedback = async () => {
+      try {
+        // Unwrap the params here
+        const interviewId = await params;  // Assuming params is a promise
+        if (interviewId.interviewId) {
+          GetFeedback(interviewId.interviewId);
+        }
+      } catch (error) {
+        console.error("Error fetching params:", error);
+        // Handle the error appropriately, such as setting an error state
+      }
+    };
+
+    fetchFeedback();
+  }, [params]);
+
+  const GetFeedback = async (interviewId) => {
+    try {
+      const result = await db
+        .select()
+        .from(UserAnswer)
+        .where(eq(UserAnswer.mockIdRef, interviewId))
+        .orderBy(UserAnswer.id);
+
+      console.log("Feedback Results:", result);
+      setFeedbackList(result);
+    } catch (error) {
+      console.error("Error fetching feedback:", error);
+      // Handle feedback fetching error
     }
-  }, [params.interviewId]);
-
-  const GetFeedback = async () => {
-    const result = await db
-      .select()
-      .from(UserAnswer)
-      .where(eq(UserAnswer.mockIdRef, params.interviewId))
-      .orderBy(UserAnswer.id);
-
-    console.log("Feedback Results:", result);
-    setFeedbackList(result);
   };
 
   return (
@@ -61,7 +77,7 @@ function Feedback({ params }) {
         </>
       )}
       <div className='gap-5'>
-        <Button className='bg-blue-400 hover:bg-green-600 transition-all mt-3' onClick={() => router.replace('/dashboard')}>New Interview</Button>
+        <Button className='bg-blue-400 font-serif hover:bg-green-600 transition-all mt-3' onClick={() => router.replace('/dashboard')}>New Interview</Button>
       </div>
     </div>
   );
