@@ -6,7 +6,7 @@ import Header from "./dashboard/_components/Header";
 import { AtomIcon, Edit, Share2 } from "lucide-react";
 
 export default function Home() {
-  
+  const [isOpen, setIsOpen] = useState(false);
   const titles = [
     "Your Personal AI Interview Coach",
     "Master Your Interview with AI",
@@ -52,7 +52,7 @@ export default function Home() {
         <div className="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12">
           <a
             href="#"
-            className="font-serif inline-flex justify-between items-center py-1 px-1 pr-4 mb-7 text-sm text-gray-700 bg-gray-100 rounded-full dark:bg-gray-800 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700"
+            className="font-serif inline-flex justify-between items-center py-1 px-1 pr-4 mb-7 text-sm text-white bg-blue-400 rounded-full dark:bg-blue-500 dark:text-white hover:bg-blue-600 dark:hover:bg-blue-700"
             role="alert"
           >
             <span className="text-xs bg-primary rounded-full text-white px-4 py-1.5 mr-3">
@@ -153,6 +153,63 @@ export default function Home() {
           </a>
         </div>
       </section>
+      <section className="bg-white z-50 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12">
+    <h2 className="font-serif text-3xl mt-10">Most Frequently Asked HR Questions</h2>
+    <div className="mt-4">
+        <button
+            className="inline-flex items-center justify-between w-full px-4 py-2 text-gray-700 bg-blue-400 border rounded-lg focus:outline-none"
+            onClick={() => setIsOpen(!isOpen)} // Toggle the dropdown
+        >
+            <span className="font-serif text-lg text-white">Typical Questions</span>
+            <svg
+                className={`w-5 h-5 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''
+                    }`}
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+            >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 9l4-4 4 4m0 6l-4 4-4-4" />
+            </svg>
+        </button>
+        {isOpen && (
+            <div className="mt-4 bg-gray-100 p-4 rounded-lg">
+                <div className="mb-4">
+                    <h3 className="font-serif font-bold">1. Tell me about yourself.</h3>
+                    <p className="font-serif text-sm text-gray-600">
+                        Focus on your education, experience, and skills that relate to the position.
+                    </p>
+                </div>
+                <div className="mb-4">
+                    <h3 className="font-serif font-bold">2. What are your strengths?</h3>
+                    <p className="font-serif text-sm text-gray-600">
+                        Highlight a few key strengths that are relevant to the job.
+                    </p>
+                </div>
+                <div className="mb-4">
+                    <h3 className="font-serif font-bold">3. What are your weaknesses?</h3>
+                    <p className="font-serif text-sm text-gray-600">
+                        Choose a real weakness and explain how you are working to improve it.
+                    </p>
+                </div>
+                <div className="mb-4">
+                    <h3 className="font-serif font-bold">4. Why do you want to work here?</h3>
+                    <p className="font-serif text-sm text-gray-600">
+                        Research the company and mention specific reasons that appeal to you.
+                    </p>
+                </div>
+                <div className="mb-4">
+                    <h3 className="font-serif font-bold">5. Where do you see yourself in 5 years?</h3>
+                    <p className="font-serif text-sm text-gray-600">
+                        Share your career goals and how they align with the company’s direction.
+                    </p>
+                </div>
+            </div>
+        )}
+    </div>
+</section>
+
+      
     </div>
   );
 }
