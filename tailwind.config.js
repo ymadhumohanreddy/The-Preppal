@@ -56,7 +56,25 @@ module.exports = {
                 sm: 'calc(var(--radius) - 4px)'
             },
             fontFamily: {
-                sans: ['Inter', 'sans-serif'], // Adding Inter as the default sans font
+                sans: ['Inter', 'sans-serif'],
+            },
+            keyframes: {
+                typing: {
+                    '0%': { width: '0%' },
+                    '100%': { width: '100%' },
+                },
+                blink: {
+                    '50%': { borderColor: 'transparent' },
+                },
+                shine: {
+                    '0%': { backgroundPosition: '200% 0' },
+                    '100%': { backgroundPosition: '-200% 0' },
+                },
+            },
+            animation: {
+                typing: 'typing 5s steps(30, end) forwards',
+                blink: 'blink 0.9s step-end infinite',
+                shine: 'shine 3s infinite',
             },
         },
     },
