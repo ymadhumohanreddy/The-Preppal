@@ -51,7 +51,7 @@ export default function Home() {
       <section className="z-50">
         <div className="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12">
           <a
-            href="#"
+            href="#bottom"
             className="font-serif inline-flex justify-between items-center py-1 px-1 pr-4 mb-7 text-sm text-white bg-blue-400 rounded-full dark:bg-blue-500 dark:text-white hover:bg-blue-600 dark:hover:bg-blue-700"
             role="alert"
           >
@@ -155,12 +155,15 @@ export default function Home() {
       </section>
       <section className="bg-white z-50 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12">
     <h2 className="font-serif text-3xl mt-10">Most Frequently Asked HR Questions</h2>
-    <div className="mt-4">
+    <div className="mt-4" id="bottom">
         <button
-            className="inline-flex items-center justify-between w-full px-4 py-2 text-gray-700 bg-blue-400 border rounded-lg focus:outline-none"
+            className="inline-flex items-center justify-between w-full px-4 py-2 text-gray-700 bg-blue-400 border rounded-lg hover:bg-blue-600 focus:outline-none"
             onClick={() => setIsOpen(!isOpen)} // Toggle the dropdown
         >
-            <span className="font-serif text-lg text-white">Typical Questions</span>
+            <div className="flex justify-center">
+    <span className="font-serif text-lg text-white">Typical Questions</span>
+</div>
+
             <svg
                 className={`w-5 h-5 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''
                     }`}
