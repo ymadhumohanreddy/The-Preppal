@@ -124,7 +124,7 @@ export default function Home() {
           Give mock interview in just 3 simple easy steps
         </h2>
         <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-          <a className="block rounded-xl border bg-white border-gray-200 p-8 shadow-xl transition hover:border-blue-500/10 hover:shadow-blue-500/10" href="#">
+          <a className="block rounded-xl border bg-white border-gray-200 p-8 shadow-xl transition hover:border-blue-500/10 hover:shadow-blue-500/10" href="/dashboard">
             <AtomIcon className="h-8 w-8" />
             <h2 className="mt-4 text-xl font-serif text-black font-bold">Enter the Details</h2>
             <p className="font-serif mt-1 text-sm text-gray-600">
@@ -134,7 +134,7 @@ export default function Home() {
               questions, ensuring you’re fully prepared for your job position.
             </p>
           </a>
-          <a className="block rounded-xl border bg-white border-gray-200 p-8 shadow-xl transition hover:border-blue-500/10 hover:shadow-blue-500/10" href="#">
+          <a className="block rounded-xl border bg-white border-gray-200 p-8 shadow-xl transition hover:border-blue-500/10 hover:shadow-blue-500/10" href="/dashboard">
             <Edit className="h-8 w-8" />
             <h2 className="mt-4 text-xl font-serif text-black font-bold">Take Interview</h2>
             <p className="mt-1 text-sm text-gray-600 font-serif">
@@ -142,7 +142,7 @@ export default function Home() {
               environment and gain the confidence you need to excel.
             </p>
           </a>
-          <a className="block rounded-xl border bg-white border-gray-200 p-8 shadow-xl transition hover:border-blue-500/10 hover:shadow-blue-500/10" href="#">
+          <a className="block rounded-xl border bg-white border-gray-200 p-8 shadow-xl transition hover:border-blue-500/10 hover:shadow-blue-500/10" href="/dashboard">
             <Share2 className="h-8 w-8" />
             <h2 className="mt-4 text-xl font-serif text-black font-bold">Learn from the Feedback</h2>
             <p className="mt-1 text-sm text-gray-600 font-serif">
