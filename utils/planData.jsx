@@ -17,7 +17,7 @@ export default[
                 value:'✔️ Easy to Use'
             },
             {
-                value:'✔️ End to End Encryption'
+                value:'✔️ End-to-End Encryption'
             }
         ]
     },
