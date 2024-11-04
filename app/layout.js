@@ -23,7 +23,7 @@ export default function RootLayout({ children }) {
   return (
     <ClerkProvider>
       <html lang="en">
-        <head>
+        <head >
           <link rel="icon" href="/logo.png" />
         </head>
         <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>

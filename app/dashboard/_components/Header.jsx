@@ -14,7 +14,15 @@ export default function Header() {
 
   return (
     <div className='flex p-0.8 items-center justify-between shadow-sm' style={{ backgroundColor: '#4DA1E7' }}>
-     <Image src="/fulllogo-.png" width={160} height={100} alt="logo" />
+      <Link href="/">
+            <Image
+                className="cursor-pointer"
+                src="/fulllogo-.png"
+                width={160}
+                height={100}
+                alt="logo"
+            />
+        </Link>
       <ul className='flex gap-14' >
         <Link href="/dashboard">
           <li className={`text-white text-2xl cursor-pointer hover:text-black hover:text-lg hover:font-serif transition-all font-serif${path === '/dashboard' ? ' text-3xl text-black font-serif font-bold': ''}`}>
