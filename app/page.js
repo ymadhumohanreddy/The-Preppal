@@ -157,7 +157,7 @@ export default function Home() {
     <h2 className="font-serif text-3xl mt-10">Most Frequently Asked HR Questions</h2>
     <div className="mt-4" id="bottom">
         <button
-            className="inline-flex items-center justify-between w-full px-4 py-2 text-gray-700 bg-blue-400 border rounded-lg hover:bg-blue-600 focus:outline-none"
+            className="font-serif inline-flex justify-center items-center py-2 px-5 text-base font-medium text-center text-white rounded-lg bg-gradient-to-r from-blue-400 to-blue-700 bg-[length:200%_100%] animate-shine hover:animate-blink focus:ring-4 focus:ring-primary-300 dark:focus:ring-blue-900 my-3"
             onClick={() => setIsOpen(!isOpen)} // Toggle the dropdown
         >
             <div className="flex justify-center">

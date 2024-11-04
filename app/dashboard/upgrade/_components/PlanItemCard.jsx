@@ -33,7 +33,7 @@ function PlanItemCard({ plan }) {
         href="/dashboard" // Link to your dashboard
         target="_self"
         rel="noopener noreferrer" // Add rel attribute for security
-        className="mt-8 block rounded-full border border-blue-600 bg-white px-12 py-3 text-center text-sm font-medium text-blue-600 hover:ring-1 hover:ring-blue-600 focus:outline-none focus:ring active:text-blue-500"
+        className="mt-8 block rounded-full border border-blue-600 bg-white px-12 py-3 text-center text-sm font-medium text-blue-600 hover:ring-1 hover: ring-blue-600 focus:outline-none focus:ring active:text-blue-500 hover:bg-blue-600 hover:text-white"
       >
         Get Started
       </a>

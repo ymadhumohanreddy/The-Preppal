@@ -77,8 +77,8 @@ function Interview({ params: paramsPromise }) {
               />
               <div className="flex justify-center items-center my-1">
                 <Button
-                  className="w-full hover:bg-[#8cbbe2] hover:text-white font-serif"
-                  variant="ghost"
+                  className="font-serif inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-gradient-to-r from-blue-400 to-blue-700 bg-[length:200%_100%] animate-shine hover:animate-blink focus:ring-4 focus:ring-primary-300 dark:focus:ring-blue-900"
+                  
                   onClick={() => setWebCamEnabled(true)}
                 >
                   Enable Web-Cam and Microphone
@@ -90,7 +90,7 @@ function Interview({ params: paramsPromise }) {
       </div>
       <div className="flex justify-end items-end">
         <Link href={`/dashboard/interview/${params.interviewId}/start`}>
-          <Button className="bg-[#5698ce] text-white hover:bg-blue-600 font-serif">
+          <Button className="bg-blue-400 text-white hover:bg-blue-600 font-serif">
             Start Interview
           </Button>
         </Link>

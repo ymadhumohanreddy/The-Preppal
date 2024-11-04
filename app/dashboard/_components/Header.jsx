@@ -23,7 +23,7 @@ export default function Header() {
                 alt="logo"
             />
         </Link>
-      <ul className='flex gap-14' >
+      <ul className='flex gap-28' >
         <Link href="/dashboard">
           <li className={`text-white text-2xl cursor-pointer hover:text-black hover:text-lg hover:font-serif transition-all font-serif${path === '/dashboard' ? ' text-3xl text-black font-serif font-bold': ''}`}>
             Dashboard
