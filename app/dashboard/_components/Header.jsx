@@ -29,7 +29,7 @@ export default function Header() {
 
         <Link href="/aboutme">
           <li className={`text-white cursor-pointer hover:text-black hover:text-lg hover:font-serif transition-all font-serif ${path === '/aboutme' ? ' text-2xl text-black font-serif' : ''}`}>
-            About Me
+            Author
           </li>
         </Link>
       </ul>
