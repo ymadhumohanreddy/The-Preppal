@@ -52,7 +52,7 @@ function Feedback({ params }) {
   return (
     <div className='p-10'>
       {feedbackList.length === 0 ? (
-        <h2 className='font-serif text-xl text-gray-500'>No Interview Feedback Record Found</h2>
+        <h2 className='font-serif text-xl text-gray-500'>No Interview Feedback (Try answering a question).</h2>
       ) : (
         <>
           <h2 className='text-3xl font-serif text-green-500'>Congratulations!</h2>
