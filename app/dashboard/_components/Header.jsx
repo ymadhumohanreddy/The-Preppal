@@ -66,17 +66,17 @@ export default function Header() {
       {isMobileMenuOpen && (
         <ul className="sm:hidden flex flex-col gap-4 p-4 bg-blue-800 shadow-lg">
           <Link href="/dashboard" onClick={closeMenu}>
-            <li className={`text-white text-xl cursor-pointer hover:text-black transition-all font-serif ${path === '/dashboard' ? 'text-2xl font-bold' : ''}`}>
+            <li className={`text-white text-xl cursor-pointer hover:text-black transition-all font-serif ${path === '/dashboard' ? 'font-extrabold' : ''}`}>
               Dashboard
             </li>
           </Link>
           <Link href="/dashboard/upgrade" onClick={closeMenu}>
-            <li className={`text-white text-xl cursor-pointer hover:text-black transition-all font-serif ${path === '/dashboard/upgrade' ? 'text-2xl font-bold' : ''}`}>
+            <li className={`text-white text-xl cursor-pointer hover:text-black transition-all font-serif ${path === '/dashboard/upgrade' ? 'font-extrabold' : ''}`}>
               Cost?
             </li>
           </Link>
           <Link href="/aboutme" onClick={closeMenu}>
-            <li className={`text-white text-xl cursor-pointer hover:text-black transition-all font-serif ${path === '/aboutme' ? 'text-2xl font-bold' : ''}`}>
+            <li className={`text-white text-xl cursor-pointer hover:text-black transition-all font-serif ${path === '/aboutme' ? ' font-extrabold ' : ''}`}>
               Author
             </li>
           </Link>
