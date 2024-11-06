@@ -52,7 +52,7 @@ export default function Home() {
         <div className="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12">
           <a
             href="#bottom"
-            className="font-serif inline-flex justify-between items-center py-1 px-1 pr-4 mb-7 text-sm text-white bg-blue-400 rounded-full dark:bg-blue-500 dark:text-white hover:bg-blue-600 dark:hover:bg-blue-700"
+            className="font-serif inline-flex justify-between items-center py-1 px-1 pr-4 mb-7 text-sm text-white bg-blue-500 rounded-full dark:bg-blue-500 dark:text-white hover:bg-blue-600 dark:hover:bg-blue-700"
             role="alert"
           >
             <span className="text-xs bg-primary rounded-full text-white px-4 py-1.5 mr-3">
