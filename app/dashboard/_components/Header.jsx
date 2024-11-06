@@ -66,20 +66,22 @@ export default function Header() {
       {isMobileMenuOpen && (
         <ul className="sm:hidden flex flex-col gap-4 p-4 bg-blue-800 shadow-lg">
           <Link href="/dashboard" onClick={closeMenu}>
-            <li className={`text-white text-xl cursor-pointer hover:text-black transition-all font-serif ${path === '/dashboard' ? 'font-extrabold' : ''}`}>
+            <li className={`text-white cursor-pointer transition-all font-serif  ${path === '/dashboard' ? 'text-2xl font-extrabold' : 'text-xl hover:text-black'}`}>
               Dashboard
             </li>
           </Link>
           <Link href="/dashboard/upgrade" onClick={closeMenu}>
-            <li className={`text-white text-xl cursor-pointer hover:text-black transition-all font-serif ${path === '/dashboard/upgrade' ? 'font-extrabold' : ''}`}>
+            <li className={`text-white cursor-pointer transition-all font-serif  ${path === '/dashboard/upgrade' ? 'text-2xl font-extrabold' : 'text-xl hover:text-black'}`}>
               Cost?
             </li>
           </Link>
-          <Link href="/aboutme" onClick={closeMenu}>
-            <li className={`text-white text-xl cursor-pointer hover:text-black transition-all font-serif ${path === '/aboutme' ? ' font-extrabold ' : ''}`}>
-              Author
-            </li>
-          </Link>
+         <Link href="/aboutme" onClick={closeMenu}>
+  <li
+    className={`text-white cursor-pointer transition-all font-serif ${path === '/aboutme' ? 'text-2xl font-extrabold' : 'text-xl hover:text-black'}`}
+  >
+    Author
+  </li>
+</Link>
         </ul>
       )}
     </>
