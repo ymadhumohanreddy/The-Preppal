@@ -84,7 +84,7 @@ export default function Home() {
             href="/dashboard"
             className="font-serif inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-gradient-to-r from-blue-400 to-blue-700 bg-[length:200%_100%] animate-shine hover:animate-blink focus:ring-4 focus:ring-primary-300 dark:focus:ring-blue-900"
           >
-            Brave Enough? Enter
+           Eager to Explore? Enter
             <svg
               className="ml-2 -mr-1 w-5 h-5"
               fill="currentColor"
