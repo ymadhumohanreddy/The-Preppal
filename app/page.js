@@ -52,10 +52,10 @@ export default function Home() {
         <div className="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12">
           <a
             href="#bottom"
-            className="font-serif inline-flex justify-between items-center py-1 px-1 pr-4 mb-7 text-sm text-white bg-blue-400 rounded-full dark:bg-blue-400 dark:text-white hover:bg-blue-600 dark:hover:bg-blue-700"
+            className="font-serif inline-flex justify-between items-center py-1 px-1 pr-4 mb-7 text-sm text-white bg-blue-400 rounded-full dark:bg-blue-600 dark:text-white hover:bg-blue-600 dark:hover:bg-blue-700"
             role="alert"
           >
-            <span className="text-xs bg-primary rounded-full text-white px-4 py-1.5 mr-3">
+            <span className="text-xs bg-primary rounded-full text-white px-4 py-1.5 mr-3 dark:text-black ">
               Tip
             </span>
             <span className="font-serif text-sm font-medium">Scroll Down</span>
@@ -81,23 +81,23 @@ export default function Home() {
           </p>
           <div className="flex flex-col mb-8 lg:mb-16 space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
             <a
-            href="/dashboard"
-            className="font-serif inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-gradient-to-r from-blue-400 to-blue-700 bg-[length:200%_100%] animate-shine hover:animate-blink focus:ring-4 focus:ring-primary-300 dark:focus:ring-blue-900"
-          >
-           Eager to Explore? Enter
-            <svg
-              className="ml-2 -mr-1 w-5 h-5"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
+              href="/dashboard"
+              className="font-serif inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-gradient-to-r from-blue-400 to-blue-700 bg-[length:200%_100%] animate-shine hover:animate-blink focus:ring-4 focus:ring-primary-300 dark:focus:ring-blue-900"
             >
-              <path
-                fillRule="evenodd"
-                d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                clipRule="evenodd"
-              ></path>
-            </svg>
-</a>
+              Eager to Explore? Enter
+              <svg
+                className="ml-2 -mr-1 w-5 h-5"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                  clipRule="evenodd"
+                ></path>
+              </svg>
+            </a>
 
             <a
               href="https://www.youtube.com/watch?v=2vU5MoO1ZSM"
@@ -118,55 +118,55 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="bg-white z-50 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12">
+
+      <section className="bg-white z-50 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12 dark:bg-[rgb(11,10,10)] dark:text-white">
         <h2 className="font-serif text-3xl">How it Works?</h2>
-        <h2 className="font-serif text-md text-gray-500">
+        <h2 className="font-serif text-md text-gray-500 dark:text-gray-400">
           Give mock interview in just 3 simple easy steps
         </h2>
         <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-          <a className="block rounded-xl border bg-white border-gray-200 p-8 shadow-xl transition hover:border-blue-500/10 hover:shadow-blue-500/10" href="/dashboard">
+          <a className="block rounded-xl border bg-white border-gray-200 p-8 shadow-xl transition hover:border-blue-500/10 hover:shadow-blue-500/10 dark:bg-gray-900 dark:border-gray-700 dark:hover:border-blue-500/10" href="/dashboard">
             <AtomIcon className="h-8 w-8" />
-            <h2 className="mt-4 text-xl font-serif text-black font-bold">Enter the Details</h2>
-            <p className="font-serif mt-1 text-sm text-gray-600">
+            <h2 className="mt-4 text-xl font-serif text-black font-bold dark:text-white">Enter the Details</h2>
+            <p className="font-serif mt-1 text-sm text-gray-600 dark:text-gray-400">
               PrepPal tailors your interview prep experience to your specific
               needs. Simply input your job role, years of experience, and tech
               stack, and PrepPal’s AI will generate customized practice
               questions, ensuring you’re fully prepared for your job position.
             </p>
           </a>
-          <a className="block rounded-xl border bg-white border-gray-200 p-8 shadow-xl transition hover:border-blue-500/10 hover:shadow-blue-500/10" href="/dashboard">
+          <a className="block rounded-xl border bg-white border-gray-200 p-8 shadow-xl transition hover:border-blue-500/10 hover:shadow-blue-500/10 dark:bg-gray-900 dark:border-gray-700 dark:hover:border-blue-500/10" href="/dashboard">
             <Edit className="h-8 w-8" />
-            <h2 className="mt-4 text-xl font-serif text-black font-bold">Take Interview</h2>
-            <p className="mt-1 text-sm text-gray-600 font-serif">
+            <h2 className="mt-4 text-xl font-serif text-black font-bold dark:text-white">Take Interview</h2>
+            <p className="mt-1 text-sm text-gray-600 dark:text-gray-400 font-serif">
               Enable your camera and microphone to simulate a real interview
               environment and gain the confidence you need to excel.
             </p>
           </a>
-          <a className="block rounded-xl border bg-white border-gray-200 p-8 shadow-xl transition hover:border-blue-500/10 hover:shadow-blue-500/10" href="/dashboard">
+          <a className="block rounded-xl border bg-white border-gray-200 p-8 shadow-xl transition hover:border-blue-500/10 hover:shadow-blue-500/10 dark:bg-gray-900 dark:border-gray-700 dark:hover:border-blue-500/10" href="/dashboard">
             <Share2 className="h-8 w-8" />
-            <h2 className="mt-4 text-xl font-serif text-black font-bold">Learn from the Feedback</h2>
-            <p className="mt-1 text-sm text-gray-600 font-serif">
-              After each practice interview, review the feedback provided by our
+            <h2 className="mt-4 text-xl font-serif text-black font-bold dark:text-white">Learn from the Feedback</h2>
+            <p className="mt-1 text-sm text-gray-600 dark:text-gray-400 font-serif">
+             After each practice interview, review the feedback provided by our
               AI system. This invaluable insight highlights your strengths and
               areas for improvement, allowing you to refine your responses.
             </p>
           </a>
         </div>
       </section>
-      <section className="bg-white z-50 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12">
-    <h2 className="font-serif text-3xl mt-10">Most Frequently Asked HR Questions</h2>
+      <section className="bg-white dark:bg-[rgb(11,10,10)] z-50 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12">
+    <h2 className="font-serif text-3xl mt-10 text-black dark:text-white">Most Frequently Asked HR Questions</h2>
     <div className="mt-4" id="bottom">
         <button
-            className="font-serif inline-flex justify-center items-center py-2 px-5 text-base font-medium text-center text-white rounded-lg bg-gradient-to-r from-blue-400 to-blue-700 bg-[length:200%_100%] animate-shine hover:animate-blink focus:ring-4 focus:ring-primary-300 dark:focus:ring-blue-900 my-3"
+            className="font-serif inline-flex justify-center items-center py-2 px-5 text-base font-medium text-center text-white rounded-lg bg-gradient-to-r from-blue-400 to-blue-700 bg-[length:200%_100%] animate-shine hover:animate-blink focus:ring-4 focus:ring-primary-300 dark:focus:ring-blue-900"
             onClick={() => setIsOpen(!isOpen)} // Toggle the dropdown
         >
             <div className="flex justify-center">
-    <span className="font-serif text-lg text-white">Typical Questions</span>
-</div>
+                <span className="font-serif text-lg text-white dark:text-white">Typical Questions</span>
+            </div>
 
             <svg
-                className={`w-5 h-5 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''
-                    }`}
+                className={`w-5 h-5 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
@@ -176,34 +176,34 @@ export default function Home() {
             </svg>
         </button>
         {isOpen && (
-            <div className="mt-4 bg-gray-100 p-4 rounded-lg">
+            <div className="mt-4 bg-gray-100 dark:bg-gray-700 p-4 rounded-lg">
                 <div className="mb-4">
-                    <h3 className="font-serif font-bold">1. Tell me about yourself.</h3>
-                    <p className="font-serif text-sm text-gray-600">
+                    <h3 className="font-serif font-bold text-black dark:text-white">1. Tell me about yourself.</h3>
+                    <p className="font-serif text-sm text-gray-600 dark:text-gray-400">
                         Focus on your education, experience, and skills that relate to the position.
                     </p>
                 </div>
                 <div className="mb-4">
-                    <h3 className="font-serif font-bold">2. What are your strengths?</h3>
-                    <p className="font-serif text-sm text-gray-600">
+                    <h3 className="font-serif font-bold text-black dark:text-white">2. What are your strengths?</h3>
+                    <p className="font-serif text-sm text-gray-600 dark:text-gray-400">
                         Highlight a few key strengths that are relevant to the job.
                     </p>
                 </div>
                 <div className="mb-4">
-                    <h3 className="font-serif font-bold">3. What are your weaknesses?</h3>
-                    <p className="font-serif text-sm text-gray-600">
+                    <h3 className="font-serif font-bold text-black dark:text-white">3. What are your weaknesses?</h3>
+                    <p className="font-serif text-sm text-gray-600 dark:text-gray-400">
                         Choose a real weakness and explain how you are working to improve it.
                     </p>
                 </div>
                 <div className="mb-4">
-                    <h3 className="font-serif font-bold">4. Why do you want to work here?</h3>
-                    <p className="font-serif text-sm text-gray-600">
+                    <h3 className="font-serif font-bold text-black dark:text-white">4. Why do you want to work here?</h3>
+                    <p className="font-serif text-sm text-gray-600 dark:text-gray-400">
                         Research the company and mention specific reasons that appeal to you.
                     </p>
                 </div>
                 <div className="mb-4">
-                    <h3 className="font-serif font-bold">5. Where do you see yourself in 5 years?</h3>
-                    <p className="font-serif text-sm text-gray-600">
+                    <h3 className="font-serif font-bold text-black dark:text-white">5. Where do you see yourself in 5 years?</h3>
+                    <p className="font-serif text-sm text-gray-600 dark:text-gray-400">
                         Share your career goals and how they align with the company’s direction.
                     </p>
                 </div>
@@ -212,7 +212,6 @@ export default function Home() {
     </div>
 </section>
 
-      
     </div>
   );
 }
