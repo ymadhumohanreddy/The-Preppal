@@ -43,62 +43,65 @@ export default function Header() {
 
   return (
     <>
-      <div className="flex items-center justify-between p-0 shadow-sm bg-blue-500 dark:bg-blue-900">
-        <Link href="/">
-          <Image
-            className="cursor-pointer"
-            src="/fulllogo-.png"
-            width={150}
-            height={150}
-            alt="logo"
-          />
-        </Link>
+     <div className="flex items-center justify-between p-0 shadow-sm bg-blue-500 dark:bg-blue-900">
+  <Link href="/">
+    <Image
+      className="cursor-pointer"
+      src="/fulllogo-.png"
+      width={150}
+      height={150}
+      alt="logo"
+    />
+  </Link>
 
-        {/* Mobile Menu Toggle Button with Hamburger Icon */}
-        <button
-          className="sm:hidden text-white text-2xl"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        >
-          <span>{isMobileMenuOpen ? '✖' : '☰'}</span>
-        </button>
+  {/* Mobile Menu Toggle Button with Hamburger Icon */}
+  <button
+    className="sm:hidden text-white text-2xl"
+    onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+  >
+    <span>{isMobileMenuOpen ? '✖' : '☰'}</span>
+  </button>
 
-        {/* Desktop Links */}
-        <ul className="hidden sm:flex gap-28 md:gap-8 lg:gap-40 xl:gap-44 items-center">
-          <Link href="/dashboard">
-            <li
-              className={`text-white text-2xl cursor-pointer hover:text-black hover:text-lg hover:font-serif transition-all font-serif ${path === '/dashboard' ? 'text-3xl font-bold' : ''}`}
-            >
-              Dashboard
-            </li>
-          </Link>
-          <Link href="/dashboard/upgrade">
-            <li
-              className={`text-white text-2xl cursor-pointer hover:text-black hover:text-lg hover:font-serif transition-all font-serif ${path === '/dashboard/upgrade' ? 'text-3xl font-bold' : ''}`}
-            >
-              Cost?
-            </li>
-          </Link>
-          <Link href="/aboutme">
-            <li
-              className={`text-white text-2xl cursor-pointer hover:text-black hover:text-lg hover:font-serif transition-all font-serif ${path === '/aboutme' ? 'text-3xl font-bold' : ''}`}
-            >
-              Author
-            </li>
-          </Link>
-        </ul>
+  {/* Desktop Links */}
+  <ul className="hidden sm:flex gap-28 md:gap-8 lg:gap-40 xl:gap-44 items-center">
+    <Link href="/dashboard">
+      <li
+        className={`text-white text-2xl cursor-pointer hover:text-black hover:text-lg hover:font-serif transition-all font-serif ${path === '/dashboard' ? 'text-3xl font-bold' : ''}`}
+      >
+        Dashboard
+      </li>
+    </Link>
+    <Link href="/dashboard/upgrade">
+      <li
+        className={`text-white text-2xl cursor-pointer hover:text-black hover:text-lg hover:font-serif transition-all font-serif ${path === '/dashboard/upgrade' ? 'text-3xl font-bold' : ''}`}
+      >
+        Cost?
+      </li>
+    </Link>
+    <Link href="/aboutme">
+      <li
+        className={`text-white text-2xl cursor-pointer hover:text-black hover:text-lg hover:font-serif transition-all font-serif ${path === '/aboutme' ? 'text-3xl font-bold' : ''}`}
+      >
+        Author
+      </li>
+    </Link>
+  </ul>
 
-        {/* Dark Mode Toggle Button */}
-        <button
-          onClick={toggleDarkMode}
-          className="text-white dark:text-gray-300 p-2 text-xl rounded-md"
-        >
-          {isDarkMode ? "☀️" : "🌙"}
-        </button>
 
-        <div className="mr-3">
-          <UserButton />
-        </div>
-      </div>
+  
+
+  {/* UserButton */}
+<div className="mr-3 flex items-center">
+  <button
+    onClick={toggleDarkMode}
+    className="text-white dark:text-gray-300 p-2 text-xl rounded-md"
+  >
+    {isDarkMode ? "☀️" : "🌙"}
+  </button>
+  <UserButton />
+</div>
+
+</div>
 
       {/* Mobile Links Dropdown */}
       {isMobileMenuOpen && (
