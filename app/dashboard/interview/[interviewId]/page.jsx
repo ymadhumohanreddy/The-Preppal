@@ -59,16 +59,19 @@ function Interview({ params: paramsPromise }) {
         </div>
         <div>
           {webCamEnabled ? (
-            <Webcam
-              onUserMedia={() => setWebCamEnabled(true)}
-              onUserMediaError={() => setWebCamEnabled(false)}
-              mirrored={true}
-              style={{
-                marginLeft:100,
-                height: 500,
-                width: 500,
-              }}
-            />
+           <Webcam
+          onUserMedia={() => setWebCamEnabled(true)}
+          onUserMediaError={() => setWebCamEnabled(false)}
+          mirrored={true}
+          style={{
+            height: 'auto',          // Adjust height automatically based on width
+            width: '100%',            // Set width to be responsive within its container
+            maxWidth: '500px',        // Set a max-width for larger screens
+            margin: '0 auto',         // Center-align the webcam view
+            display: 'block',         // Ensure the view stays centered
+          }}
+        />
+
           ) : (
             <>
               <WebcamIcon
@@ -90,7 +93,7 @@ function Interview({ params: paramsPromise }) {
       </div>
       <div className="flex justify-end items-end">
         <Link href={`/dashboard/interview/${params.interviewId}/start`}>
-          <Button className="bg-blue-400 text-white hover:bg-blue-600 font-serif">
+          <Button className="bg-blue-400 text-white hover:bg-blue-600 font-serif mt-3">
             Start Interview
           </Button>
         </Link>

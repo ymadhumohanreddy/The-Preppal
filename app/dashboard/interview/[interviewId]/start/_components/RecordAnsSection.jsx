@@ -121,7 +121,7 @@ function RecordAnsSection({ mockInterviewQuestion, activeQuestionIndex, intervie
       
       <Button 
         disabled={loading}
-        variant="ghost"
+        variant="none"
         className="my-10" 
         onClick={StartStopRecording}
       >
@@ -130,7 +130,7 @@ function RecordAnsSection({ mockInterviewQuestion, activeQuestionIndex, intervie
             <StopCircle /> Stop Recording
           </h2>
         ) : (
-          <h2 className='font-serif inline-flex justify-center items-center py-2 px-3 text-base font-medium text-center text-white rounded-lg bg-gradient-to-r from-blue-400 to-red-400 bg-[length:200%_100%] animate-shine hover:animate-blink focus:ring-4 focus:ring-primary-300 dark:focus:ring-blue-900'>
+          <h2 className='font-serif inline-flex justify-center items-center py-2 px-5 text-base font-medium text-center text-white rounded-lg bg-gradient-to-r from-blue-400 to-red-400 bg-[length:200%_100%] animate-shine hover:animate-blink focus:ring-4 focus:ring-primary-300 dark:focus:ring-blue-900'>
             <Mic /> Record Answer
           </h2> 
         )}
