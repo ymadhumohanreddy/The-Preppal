@@ -16,7 +16,7 @@ function RecordAnsSection({ mockInterviewQuestion, activeQuestionIndex, intervie
   const [userAnswer, setUserAnswer] = useState('');
   const { user } = useUser();
   const [loading, setLoading] = useState(false);
-  const previousTranscript = useRef(''); // Tracks the previous transcript to prevent duplicate processing
+  const lastTranscriptRef = useRef(''); // Track last processed transcript
 
   const {
     isRecording,
@@ -29,56 +29,71 @@ function RecordAnsSection({ mockInterviewQuestion, activeQuestionIndex, intervie
     useLegacyResults: false,
   });
 
-  // Append only unique results to userAnswer
   useEffect(() => {
-    const newResult = results.map(result => result?.transcript).join(' ');
-    if (newResult !== previousTranscript.current) {
-      setUserAnswer(prev => prev + ' ' + newResult);
-      previousTranscript.current = newResult;
+    // Filter out duplicate transcripts
+    const newResults = results
+      .map(result => result?.transcript)
+      .filter(transcript => transcript !== lastTranscriptRef.current);
+
+    if (newResults.length > 0) {
+      const concatenatedResults = newResults.join(' ') + ' ';
+      setUserAnswer(prevAns => prevAns + concatenatedResults);
+      
+      // Update the last transcript reference to the latest result
+      lastTranscriptRef.current = results[results.length - 1]?.transcript || '';
+      setResults([]); // Clear results to prevent reprocessing
     }
-    setResults([]); // Clear results after processing
   }, [results, setResults]);
 
-  // Auto-save answer when recording stops
   useEffect(() => {
-    if (!isRecording && userAnswer.trim().length > 10) {
+    if (!isRecording && userAnswer.length > 10) {
       UpdateUserAnswer();
     }
   }, [isRecording, userAnswer]);
 
-  // Toggle recording state
-  const StartStopRecording = useCallback(() => {
+  const StartStopRecording = useCallback(async () => {
     isRecording ? stopSpeechToText() : startSpeechToText();
   }, [isRecording, startSpeechToText, stopSpeechToText]);
 
-  // Update user answer in the database
   const UpdateUserAnswer = useCallback(async () => {
+    console.log(userAnswer);
     setLoading(true);
+
     const feedbackPrompt = `Question: ${mockInterviewQuestion[activeQuestionIndex]?.question}, User Answer: ${userAnswer}. Please give a rating and improvement feedback in JSON format with "rating" and "feedback" fields.`;
 
     try {
       const result = await chatSession.sendMessage(feedbackPrompt);
-      const responseText = result.response?.text ? await result.response.text() : '';
-      const cleanResponse = responseText.replace(/```json|```/g, "").trim();
-      const feedbackJson = JSON.parse(cleanResponse);
 
-      await db.insert(UserAnswer).values({
-        mockIdRef: interviewData?.mockId,
-        question: mockInterviewQuestion[activeQuestionIndex]?.question,
-        correctAns: mockInterviewQuestion[activeQuestionIndex]?.answer,
-        userAns: userAnswer,
-        feedback: feedbackJson.feedback,
-        rating: feedbackJson.rating,
-        userEmail: user?.primaryEmailAddress?.emailAddress,
-        createdAt: moment().format('DD-MM-yyyy'),
-      });
+      if (result && result.response && typeof result.response.text === 'function') {
+        const mockJsonResp = (await result.response.text()).replace(/```json|```/g, "").trim();
+        const JsonFeedbackResp = JSON.parse(mockJsonResp);
 
-      toast('User Answer recorded successfully', { position: 'top-center', autoClose: 3000 });
-      setUserAnswer(''); // Reset user answer
-      previousTranscript.current = ''; // Reset previous transcript
+        const resp = await db.insert(UserAnswer).values({
+          mockIdRef: interviewData?.mockId,
+          question: mockInterviewQuestion[activeQuestionIndex]?.question,
+          correctAns: mockInterviewQuestion[activeQuestionIndex]?.answer,
+          userAns: userAnswer,
+          feedback: JsonFeedbackResp?.feedback,
+          rating: JsonFeedbackResp?.rating,
+          userEmail: user?.primaryEmailAddress?.emailAddress,
+          createdAt: moment().format('DD-MM-yyyy'),
+        });
+
+        if (resp) {
+          toast('User Answer recorded successfully', {
+            position: 'top-center',
+            autoClose: 3000,
+          });
+          setUserAnswer('');
+          setResults([]); // Reset results
+        }
+      }
     } catch (error) {
       console.error('Error in UpdateUserAnswer:', error);
-      toast('Error processing your answer. Please try again.', { position: 'top-center', autoClose: 3000 });
+      toast('Error processing your answer. Please try again.', {
+        position: 'top-center',
+        autoClose: 3000,
+      });
     } finally {
       setLoading(false);
     }
@@ -96,7 +111,11 @@ function RecordAnsSection({ mockInterviewQuestion, activeQuestionIndex, intervie
         />
         <Webcam
           mirrored={true}
-          style={{ height: 350, width: '100%', zIndex: 10 }}
+          style={{
+            height: 350,
+            width: '100%',
+            zIndex: 10,
+          }}
         />
       </div>
       
