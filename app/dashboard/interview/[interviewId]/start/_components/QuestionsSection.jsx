@@ -54,7 +54,7 @@ function QuestionsSection({ mockInterviewQuestion, activeQuestionIndex, onQuesti
           <h2
             key={index}
             className={`p-2 rounded-full text-xs md:text-sm text-center cursor-pointer 
-              ${activeQuestionIndex === index ? 'bg-blue-500 text-white' : 'bg-secondary text-black'}`}
+              ${activeQuestionIndex === index ? 'bg-blue-500 text-white' : 'bg-secondary text-black dark:bg-gray-200'}`}
             onClick={() => onQuestionChange(index)} // Update active question index on click
           >
             Question #{index + 1}
