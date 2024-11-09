@@ -102,7 +102,7 @@ function AddNewInterview() {
                     id="jobPosition"
                     placeholder="Ex. SDE-1"
                     required
-                    className="text-black"  // Apply text-black for input text color
+                    className="text-black dark:text-white"  // Apply text-black for input text color
                     onChange={(e) => setJobPosition(e.target.value)}
                   />
                 </div>
@@ -112,7 +112,7 @@ function AddNewInterview() {
                     id="jobDesc"
                     placeholder="Ex. React, Drizzle, Machine Learning, etc."
                     required
-                    className="text-black"  // Apply text-black for textarea text color
+                    className="text-black dark:text-white"  // Apply text-black for textarea text color
                     onChange={(e) => setJobDesc(e.target.value)}
                   />
                 </div>
@@ -124,7 +124,7 @@ function AddNewInterview() {
                     type="number"
                     max="100"
                     required
-                    className="text-black"  // Apply text-black for input text color
+                    className="text-black dark:text-white"  // Apply text-black for input text color
                     onChange={(e) => setJobExperience(e.target.value)}
                   />
                 </div>
