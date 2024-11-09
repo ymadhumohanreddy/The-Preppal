@@ -110,7 +110,7 @@ function AddNewInterview() {
                   <label htmlFor="jobDesc">Job Description / Tech Stack (In Short)</label>
                   <Textarea
                     id="jobDesc"
-                    placeholder="Ex. React, Drizzle, Machine Learning, etc."
+                    placeholder="Ex. DSA, React, Behavioral questions, etc."
                     required
                     className="text-black dark:text-white"  // Apply text-black for textarea text color
                     onChange={(e) => setJobDesc(e.target.value)}

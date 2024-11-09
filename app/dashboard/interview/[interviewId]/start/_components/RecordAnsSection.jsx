@@ -1,6 +1,6 @@
 "use client";
 import Image from 'next/image';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import Webcam from 'react-webcam';
 import { Button } from '../../../../../../components/ui/button';
 import useSpeechToText from 'react-hook-speech-to-text';
@@ -28,9 +28,8 @@ function RecordAnsSection({ mockInterviewQuestion, activeQuestionIndex, intervie
   });
 
   useEffect(() => {
-    results.forEach((result) => {
-      setUserAnswer(prevAns => prevAns + result?.transcript + ' '); // Added space for clarity
-    });
+    const newAnswer = results.map(result => result?.transcript).join(' ') + ' ';
+    setUserAnswer(prevAns => prevAns + newAnswer);
   }, [results]);
 
   useEffect(() => {
@@ -39,20 +38,15 @@ function RecordAnsSection({ mockInterviewQuestion, activeQuestionIndex, intervie
     }
   }, [isRecording, userAnswer]);
 
-  const StartStopRecording = async () => {
-    if (isRecording) {
-      stopSpeechToText();
-      
-    } else {
-      startSpeechToText();
-    }
-  };
+  const StartStopRecording = useCallback(async () => {
+    isRecording ? stopSpeechToText() : startSpeechToText();
+  }, [isRecording, startSpeechToText, stopSpeechToText]);
 
-  const UpdateUserAnswer = async () => {
+  const UpdateUserAnswer = useCallback(async () => {
     console.log(userAnswer);
     setLoading(true);
 
-    const feedbackPrompt = `Question: ${mockInterviewQuestion[activeQuestionIndex]?.question}, User Answer: ${userAnswer}, Depends on question ans user answer for give interview question. Please give us rating for answer and feedback as area of improvement if any in just 3 to 5 lines to improve it in JSON format with rating field and feedback field.`;
+    const feedbackPrompt = `Question: ${mockInterviewQuestion[activeQuestionIndex]?.question}, User Answer: ${userAnswer}. Please give a rating and improvement feedback in JSON format with "rating" and "feedback" fields.`;
 
     try {
       const result = await chatSession.sendMessage(feedbackPrompt);
@@ -74,23 +68,23 @@ function RecordAnsSection({ mockInterviewQuestion, activeQuestionIndex, intervie
 
         if (resp) {
           toast('User Answer recorded successfully', {
-            position: 'top-center', // Position the toast at the top center
-            autoClose: 3000, // Toast will close after 3 seconds
+            position: 'top-center',
+            autoClose: 3000,
           });
           setUserAnswer('');
-          setResults([]); // Reset only if the response is successful
+          setResults([]); // Reset results
         }
       }
     } catch (error) {
       console.error('Error in UpdateUserAnswer:', error);
       toast('Error processing your answer. Please try again.', {
-        position: 'top-center', // Position error toast at the top center
-        autoClose: 3000, // Toast will close after 3 seconds
+        position: 'top-center',
+        autoClose: 3000,
       });
     } finally {
       setLoading(false);
     }
-  };
+  }, [userAnswer, activeQuestionIndex, mockInterviewQuestion, interviewData, user]);
 
   return (
     <div className="flex items-center justify-center flex-col">

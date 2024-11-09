@@ -69,7 +69,7 @@ function Feedback({ params }) {
                   <h2 className='text-red-500 p-2 border rounded-lg'><strong>Rating:</strong> {item.rating}</h2>
                   <h2 className='p-2 border rounded-lg bg-red-50 text-sm text-red-900'><strong>Your Answer: </strong>{item.userAns}</h2>
                   <h2 className='p-2 border rounded-lg bg-green-50 text-sm text-green-900'><strong>Correct Answer: </strong>{item.correctAns}</h2>
-                  <h2 className='p-2 border rounded-lg bg-blue-50 text-sm text-primary'><strong>Feedback: </strong>{item.feedback}</h2>
+                  <h2 className='p-2 border rounded-lg bg-blue-50 text-sm text-blue-700'><strong>Feedback: </strong>{item.feedback}</h2>
                 </div>
               </CollapsibleContent>
             </Collapsible>
