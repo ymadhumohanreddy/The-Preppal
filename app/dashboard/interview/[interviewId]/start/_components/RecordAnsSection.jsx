@@ -1,6 +1,6 @@
 "use client";
 import Image from 'next/image';
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useState, useCallback, useRef } from 'react';
 import Webcam from 'react-webcam';
 import { Button } from '../../../../../../components/ui/button';
 import useSpeechToText from 'react-hook-speech-to-text';
@@ -16,6 +16,8 @@ function RecordAnsSection({ mockInterviewQuestion, activeQuestionIndex, intervie
   const [userAnswer, setUserAnswer] = useState('');
   const { user } = useUser();
   const [loading, setLoading] = useState(false);
+  const lastTranscriptRef = useRef(''); // Track last processed transcript
+
   const {
     isRecording,
     results,
@@ -28,9 +30,20 @@ function RecordAnsSection({ mockInterviewQuestion, activeQuestionIndex, intervie
   });
 
   useEffect(() => {
-    const newAnswer = results.map(result => result?.transcript).join(' ') + ' ';
-    setUserAnswer(prevAns => prevAns + newAnswer);
-  }, [results]);
+    // Filter out duplicate transcripts
+    const newResults = results
+      .map(result => result?.transcript)
+      .filter(transcript => transcript !== lastTranscriptRef.current);
+
+    if (newResults.length > 0) {
+      const concatenatedResults = newResults.join(' ') + ' ';
+      setUserAnswer(prevAns => prevAns + concatenatedResults);
+      
+      // Update the last transcript reference to the latest result
+      lastTranscriptRef.current = results[results.length - 1]?.transcript || '';
+      setResults([]); // Clear results to prevent reprocessing
+    }
+  }, [results, setResults]);
 
   useEffect(() => {
     if (!isRecording && userAnswer.length > 10) {
