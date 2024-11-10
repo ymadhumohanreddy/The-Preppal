@@ -1,134 +1,127 @@
-"use client";
-import { UserButton } from '@clerk/nextjs';
-import Image from 'next/image';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { useEffect, useState } from 'react';
+"use client"
 
-export default function Header() {
-  const path = usePathname();
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+import { useState, useEffect } from 'react'
+import Image from 'next/image'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+import { UserButton, useUser } from '@clerk/nextjs'
+import { Moon, Sun, Menu } from 'lucide-react'
+import { Button } from '../../../components/ui/button'
 
-  // Initialize dark mode state with the value from localStorage or system preference
-  const [isDarkMode, setIsDarkMode] = useState(false);
-
-  useEffect(() => {
-    // Access localStorage only on the client side
-    const darkModePreference = localStorage.getItem("darkMode");
-    if (darkModePreference === "true") {
-      setIsDarkMode(true);
-    } else if (darkModePreference === "false") {
-      setIsDarkMode(false);
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      setIsDarkMode(true);
-    }
-  }, []);
+const Header = () => {
+  const path = usePathname()
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isDarkMode, setIsDarkMode] = useState(false)
+  const { isSignedIn, user } = useUser()
 
   useEffect(() => {
-    // Apply dark mode on body class when the state changes
-    if (isDarkMode) {
-      document.body.classList.add('dark');
-      localStorage.setItem("darkMode", "true");
-    } else {
-      document.body.classList.remove('dark');
-      localStorage.setItem("darkMode", "false");
-    }
-  }, [isDarkMode]);
+    const darkModePreference = localStorage.getItem("darkMode")
+    setIsDarkMode(darkModePreference === "true" ||
+      (darkModePreference === null && window.matchMedia('(prefers-color-scheme: dark)').matches))
+  }, [])
 
-  // Function to toggle dark mode
-  const toggleDarkMode = () => setIsDarkMode((prev) => !prev);
+  useEffect(() => {
+    document.documentElement.classList.toggle('dark', isDarkMode)
+    localStorage.setItem("darkMode", isDarkMode.toString())
+  }, [isDarkMode])
 
-  // Function to close menu on link click
-  const closeMenu = () => setIsMobileMenuOpen(false);
+  const toggleDarkMode = () => {
+    setIsDarkMode(prevMode => !prevMode)
+  }
+
+  const closeMenu = () => setIsMobileMenuOpen(false)
 
   return (
-    <>
-     <div className="flex items-center justify-between p-0 shadow-sm bg-blue-500 dark:bg-blue-900">
-  <Link href="/">
-    <Image
-      className="cursor-pointer"
-      src="/fulllogo-.png"
-      width={150}
-      height={150}
-      alt="logo"
-    />
-  </Link>
-
-  {/* Mobile Menu Toggle Button with Hamburger Icon */}
-  <button
-    className="sm:hidden text-white text-2xl"
-    onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-  >
-    <span>{isMobileMenuOpen ? '✖' : '☰'}</span>
-  </button>
-
-  {/* Desktop Links */}
-  <ul className="hidden sm:flex gap-28 md:gap-8 lg:gap-40 xl:gap-44 items-center">
-    <Link href="/dashboard">
-      <li
-        className={`text-white text-2xl cursor-pointer hover:text-black hover:text-lg hover:font-serif transition-all font-serif ${path === '/dashboard' ? 'text-3xl font-bold' : ''}`}
-      >
-        Dashboard
-      </li>
-    </Link>
-    <Link href="/dashboard/upgrade">
-      <li
-        className={`text-white text-2xl cursor-pointer hover:text-black hover:text-lg hover:font-serif transition-all font-serif ${path === '/dashboard/upgrade' ? 'text-3xl font-bold' : ''}`}
-      >
-        Cost?
-      </li>
-    </Link>
-    <Link href="/aboutme">
-      <li
-        className={`text-white text-2xl cursor-pointer hover:text-black hover:text-lg hover:font-serif transition-all font-serif ${path === '/aboutme' ? 'text-3xl font-bold' : ''}`}
-      >
-        Author
-      </li>
-    </Link>
-  </ul>
-
-
-  
-
-  {/* UserButton */}
-<div className="mr-3 flex items-center">
-  <button
-    onClick={toggleDarkMode}
-    className="text-white dark:text-gray-300 p-2 text-xl rounded-md"
-  >
-    {isDarkMode ? "☀️" : "🌙"}
-  </button>
-  <UserButton />
-</div>
-
-</div>
-
-      {/* Mobile Links Dropdown */}
+    <header className="sticky top-0 z-50 w-full border-b bg-white dark:bg-gray-900 shadow-sm transition-colors duration-200">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-12">
+          <div className="flex items-center">
+            <Link href="/" className="flex-shrink-0">
+              <Image
+                src="/fulllogo-.png"
+                width={100}
+                height={100}
+                alt="PrepPal logo"
+                className="h-8 w-auto bg-blue-950 px-2 rounded-xl"
+              />
+            </Link>
+            <nav className="hidden md:ml-6 md:flex md:space-x-8">
+              <NavLink href="/dashboard" currentPath={path}>Dashboard</NavLink>
+              <NavLink href="/dashboard/upgrade" currentPath={path}>Cost?</NavLink>
+              <NavLink href="/aboutme" currentPath={path}>Author</NavLink>
+            </nav>
+          </div>
+          <div className="flex items-center">
+            <button
+              onClick={toggleDarkMode}
+              className="p-2 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500 transition-colors duration-200"
+              aria-label="Toggle dark mode"
+            >
+              {isDarkMode ? (
+                <Sun className="h-5 w-5" />
+              ) : (
+                <Moon className="h-5 w-5" />
+              )}
+            </button>
+            {isSignedIn ? (
+              <div className="ml-4">
+                <UserButton afterSignOutUrl="/" />
+              </div>
+            ) : (
+              <Link href="/sign-in" className="ml-4">
+                <Button className>
+                  Login
+                </Button>
+              </Link>
+            )}
+            <div className="ml-4 md:hidden">
+              <button
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className="p-2 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500"
+                aria-label="Toggle mobile menu"
+              >
+                <Menu className="h-6 w-6" />
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
       {isMobileMenuOpen && (
-        <ul className="sm:hidden flex flex-col gap-4 p-4 bg-blue-800 dark:bg-blue-900 shadow-lg">
-          <Link href="/dashboard" onClick={closeMenu}>
-            <li
-              className={`text-white cursor-pointer transition-all font-serif  ${path === '/dashboard' ? 'text-2xl font-extrabold' : 'text-xl hover:text-black'}`}
-            >
-              Dashboard
-            </li>
-          </Link>
-          <Link href="/dashboard/upgrade" onClick={closeMenu}>
-            <li
-              className={`text-white cursor-pointer transition-all font-serif  ${path === '/dashboard/upgrade' ? 'text-2xl font-extrabold' : 'text-xl hover:text-black'}`}
-            >
-              Cost?
-            </li>
-          </Link>
-          <Link href="/aboutme" onClick={closeMenu}>
-            <li
-              className={`text-white cursor-pointer transition-all font-serif ${path === '/aboutme' ? 'text-2xl font-extrabold' : 'text-xl hover:text-black'}`}
-            >
-              Author
-            </li>
-          </Link>
-        </ul>
+        <div className="md:hidden">
+          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+            <MobileNavLink href="/dashboard" currentPath={path} onClick={closeMenu}>Dashboard</MobileNavLink>
+            <MobileNavLink href="/dashboard/upgrade" currentPath={path} onClick={closeMenu}>Cost?</MobileNavLink>
+            <MobileNavLink href="/aboutme" currentPath={path} onClick={closeMenu}>Author</MobileNavLink>
+          </div>
+        </div>
       )}
-    </>
-  );
+    </header>
+  )
 }
+
+const NavLink = ({ href, currentPath, children }) => (
+  <Link
+    href={href}
+    className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${currentPath === href
+      ? 'bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-200'
+      : 'text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800'
+      }`}
+  >
+    {children}
+  </Link>
+)
+
+const MobileNavLink = ({ href, currentPath, onClick, children }) => (
+  <Link
+    href={href}
+    onClick={onClick}
+    className={`block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 ${currentPath === href
+      ? 'bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-200'
+      : 'text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800'
+      }`}
+  >
+    {children}
+  </Link>
+)
+
+export default Header

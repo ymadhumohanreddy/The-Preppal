@@ -47,7 +47,7 @@ export default function Home() {
 
   return (
     <div>
-      <Header />
+     
       <section className="z-50">
         <div className="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12">
           <a
@@ -176,38 +176,43 @@ export default function Home() {
             </svg>
         </button>
         {isOpen && (
-            <div className="mt-4 bg-gray-100 dark:bg-gray-700 p-4 rounded-lg">
-                <div className="mb-4">
-                    <h3 className="font-serif font-bold text-black dark:text-white">1. Tell me about yourself.</h3>
-                    <p className="font-serif text-sm text-gray-600 dark:text-gray-400">
-                        Focus on your education, experience, and skills that relate to the position.
-                    </p>
-                </div>
-                <div className="mb-4">
-                    <h3 className="font-serif font-bold text-black dark:text-white">2. What are your strengths?</h3>
-                    <p className="font-serif text-sm text-gray-600 dark:text-gray-400">
-                        Highlight a few key strengths that are relevant to the job.
-                    </p>
-                </div>
-                <div className="mb-4">
-                    <h3 className="font-serif font-bold text-black dark:text-white">3. What are your weaknesses?</h3>
-                    <p className="font-serif text-sm text-gray-600 dark:text-gray-400">
-                        Choose a real weakness and explain how you are working to improve it.
-                    </p>
-                </div>
-                <div className="mb-4">
-                    <h3 className="font-serif font-bold text-black dark:text-white">4. Why do you want to work here?</h3>
-                    <p className="font-serif text-sm text-gray-600 dark:text-gray-400">
-                        Research the company and mention specific reasons that appeal to you.
-                    </p>
-                </div>
-                <div className="mb-4">
-                    <h3 className="font-serif font-bold text-black dark:text-white">5. Where do you see yourself in 5 years?</h3>
-                    <p className="font-serif text-sm text-gray-600 dark:text-gray-400">
-                        Share your career goals and how they align with the company’s direction.
-                    </p>
-                </div>
-            </div>
+            <div className="mt-6 bg-gradient-to-r from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-900 p-6 rounded-lg shadow-lg">
+  <div className="mb-6">
+    <h3 className="font-serif font-bold text-xl text-gray-800 dark:text-white">1. Tell me about yourself.</h3>
+    <p className="font-serif text-sm text-gray-600 dark:text-gray-400 mt-2">
+      Focus on your education, experience, and skills that relate to the position.
+    </p>
+  </div>
+  
+  <div className="mb-6">
+    <h3 className="font-serif font-bold text-xl text-gray-800 dark:text-white">2. What are your strengths?</h3>
+    <p className="font-serif text-sm text-gray-600 dark:text-gray-400 mt-2">
+      Highlight a few key strengths that are relevant to the job.
+    </p>
+  </div>
+
+  <div className="mb-6">
+    <h3 className="font-serif font-bold text-xl text-gray-800 dark:text-white">3. What are your weaknesses?</h3>
+    <p className="font-serif text-sm text-gray-600 dark:text-gray-400 mt-2">
+      Choose a real weakness and explain how you are working to improve it.
+    </p>
+  </div>
+
+  <div className="mb-6">
+    <h3 className="font-serif font-bold text-xl text-gray-800 dark:text-white">4. Why do you want to work here?</h3>
+    <p className="font-serif text-sm text-gray-600 dark:text-gray-400 mt-2">
+      Research the company and mention specific reasons that appeal to you.
+    </p>
+  </div>
+
+  <div className="mb-6">
+    <h3 className="font-serif font-bold text-xl text-gray-800 dark:text-white">5. Where do you see yourself in 5 years?</h3>
+    <p className="font-serif text-sm text-gray-600 dark:text-gray-400 mt-2">
+      Share your career goals and how they align with the company’s direction.
+    </p>
+  </div>
+</div>
+
         )}
     </div>
 </section>

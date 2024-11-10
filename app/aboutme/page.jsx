@@ -5,7 +5,7 @@ import Header from '../dashboard/_components/Header'; // Make sure to import you
 function AboutMe() {
   return (
     <>
-      <Header />
+      
       <div className="flex flex-col items-center justify-center h-[calc(90vh)] overflow-hidden"> {/* Prevents vertical overflow */}
         <h2 className="text-xl font-serif mb-4 text-center"> 
     "Hope we all get placed! All I can say is, <strong>Good luck</strong>, and <strong>Have a great day!</strong> ;)"
