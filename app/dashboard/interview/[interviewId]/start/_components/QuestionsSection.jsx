@@ -81,9 +81,12 @@ function QuestionsSection({ mockInterviewQuestion, activeQuestionIndex, onQuesti
           <Lightbulb />
           <strong>Note:</strong>
         </h2>
-        <h2 className='mt-3 font-serif text-blue-600 text-sm'>
-          {process.env.NEXT_PUBLIC_QUESTION_NOTE}
-        </h2>
+        <h2 className="mt-3 font-serif text-blue-600 text-sm">
+  When you're ready to respond to each question, click <strong>'Record Answer'</strong> to begin. Speak clearly and at a steady pace to ensure accuracy. 
+  <br />
+  You’re expected to record an answer for every question. After the interview, you'll receive detailed feedback with correct answers for comparison, allowing you to assess and reflect on your performance.
+</h2>
+
       </div>
     </div>
   );

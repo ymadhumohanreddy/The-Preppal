@@ -52,9 +52,12 @@ function Interview({ params: paramsPromise }) {
               <Lightbulb />
               <strong>Information</strong>
             </h2>
-            <h2 className=" font-serif mt-3 text-blue-600">
-              {process.env.NEXT_PUBLIC_INFORMATION}
-            </h2>
+            <h2 className="font-serif mt-3 text-blue-600">
+  Enable your webcam and microphone to start the AI-generated mock interview, which includes five questions to answer.
+  <br />
+  <strong>Note:</strong> Your video is not recorded, and you can disable webcam access at any time.
+</h2>
+
           </div>
         </div>
         <div>
