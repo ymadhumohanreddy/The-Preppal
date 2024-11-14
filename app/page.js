@@ -4,6 +4,7 @@ import { Button } from "../components/ui/button";
 import Image from "next/image";
 import Header from "./dashboard/_components/Header";
 import { AtomIcon, Edit, Share2 } from "lucide-react";
+import Spline from '@splinetool/react-spline';
 
 export default function Home() {
   const [isOpen, setIsOpen] = useState(false);
