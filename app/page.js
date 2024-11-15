@@ -49,8 +49,8 @@ export default function Home() {
   return (
     <div>
      
-      <section className="z-50">
-        <div className="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12">
+      <section className="z-50 ">
+        <div className="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12  ">
           <a
             href="#bottom"
             className="font-serif inline-flex justify-between items-center py-1 px-1 pr-4 mb-7 text-sm text-white bg-blue-400 rounded-full dark:bg-blue-600 dark:text-white hover:bg-blue-600 dark:hover:bg-blue-700"
@@ -83,9 +83,9 @@ export default function Home() {
           <div className="flex flex-col mb-8 lg:mb-16 space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
             <a
               href="/dashboard"
-              className="font-serif inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-gradient-to-r from-blue-400 to-blue-700 bg-[length:200%_100%] animate-shine hover:animate-blink focus:ring-4 focus:ring-primary-300 dark:focus:ring-blue-900"
+              className="font-serif inline-flex justify-center items-center py-2 px-3 text-base font-medium text-center text-white rounded-lg bg-gradient-to-r from-blue-400 to-blue-700 bg-[length:200%_100%] animate-shine hover:animate-blink focus:ring-4 focus:ring-primary-300 dark:focus:ring-blue-900"
             >
-              Eager to Explore? Enter
+              Start Your Free Trail
               <svg
                 className="ml-2 -mr-1 w-5 h-5"
                 fill="currentColor"
@@ -154,8 +154,7 @@ export default function Home() {
             </p>
           </a>
         </div>
-      </section>
-      <section className="bg-white dark:bg-[rgb(11,10,10)] z-50 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12">
+        <section className="bg-white dark:bg-[rgb(11,10,10)] z-50 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12">
     <h2 className="font-serif text-3xl mt-10 text-black dark:text-white">Most Frequently Asked HR Questions</h2>
     <div className="mt-4" id="bottom">
         <button
@@ -217,6 +216,8 @@ export default function Home() {
         )}
     </div>
 </section>
+      </section>
+      
 
     </div>
   );

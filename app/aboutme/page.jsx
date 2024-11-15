@@ -7,6 +7,7 @@ function AboutMe() {
   return (
     <>
       <section className="flex flex-col items-center justify-center h-[calc(90vh)] overflow-hidden">
+        
         <Spline 
           scene="https://prod.spline.design/UlThdMSAAnJw9kvW/scene.splinecode" 
           aria-label="3D interactive scene showing personal work" 

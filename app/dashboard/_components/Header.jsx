@@ -47,8 +47,8 @@ const Header = () => {
             </Link>
             <nav className="hidden md:ml-6 md:flex md:space-x-8">
               <NavLink href="/dashboard" currentPath={path}>Dashboard</NavLink>
-              <NavLink href="/dashboard/upgrade" currentPath={path}>Cost?</NavLink>
-              <NavLink href="/aboutme" currentPath={path}>Author</NavLink>
+              <NavLink href="/dashboard/upgrade" currentPath={path}>Pricing</NavLink>
+              <NavLink href="/aboutme" currentPath={path}>About</NavLink>
             </nav>
           </div>
           <div className="flex items-center">
@@ -90,8 +90,8 @@ const Header = () => {
         <div className="md:hidden">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             <MobileNavLink href="/dashboard" currentPath={path} onClick={closeMenu}>Dashboard</MobileNavLink>
-            <MobileNavLink href="/dashboard/upgrade" currentPath={path} onClick={closeMenu}>Cost?</MobileNavLink>
-            <MobileNavLink href="/aboutme" currentPath={path} onClick={closeMenu}>Author</MobileNavLink>
+            <MobileNavLink href="/dashboard/upgrade" currentPath={path} onClick={closeMenu}>Pricing</MobileNavLink>
+            <MobileNavLink href="/aboutme" currentPath={path} onClick={closeMenu}>About</MobileNavLink>
           </div>
         </div>
       )}
