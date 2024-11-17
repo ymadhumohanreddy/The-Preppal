@@ -18,7 +18,7 @@ const geistMono = localFont({
 
 export const metadata = {
   title: "PrepPal",
-  description: "Prep with Prepal to ace your next interview with ease!",
+  description: "Prep with Prepal to ace your next interview!",
 };
 
 export default function RootLayout({ children }) {
