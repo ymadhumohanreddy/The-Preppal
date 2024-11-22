@@ -65,7 +65,13 @@ function RecordAnsSection({ mockInterviewQuestion, activeQuestionIndex, intervie
       const result = await chatSession.sendMessage(feedbackPrompt);
 
       if (result && result.response && typeof result.response.text === 'function') {
-        const mockJsonResp = (await result.response.text()).replace(/```json|```/g, "").trim();
+        // Remove code block markdown and extra whitespace
+        let mockJsonResp = (await result.response.text()).replace(/```json|```/g, "").trim();
+
+        // Sanitize the JSON string to escape any control characters
+        mockJsonResp = mockJsonResp.replace(/[\x00-\x1F\x7F]/g, ''); // Remove control characters
+
+        // Parse the sanitized JSON response
         const JsonFeedbackResp = JSON.parse(mockJsonResp);
 
         const resp = await db.insert(UserAnswer).values({

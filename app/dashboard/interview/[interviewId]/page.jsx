@@ -87,7 +87,7 @@ function Interview({ params: paramsPromise }) {
                   
                   onClick={() => setWebCamEnabled(true)}
                 >
-                  Enable Web-Cam and Microphone
+                  Enable Web-Cam
                 </Button>
               </div>
             </>

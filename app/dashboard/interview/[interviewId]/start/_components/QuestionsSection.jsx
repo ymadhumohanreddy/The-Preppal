@@ -79,13 +79,17 @@ function QuestionsSection({ mockInterviewQuestion, activeQuestionIndex, onQuesti
       <div className='font-serif p-5 border rounded-lg border-[#4AA0E7] bg-blue-100 mt-20'>
         <h2 className='flex gap-2 items-center text-blue-600'>
           <Lightbulb />
-          <strong>Note:</strong>
+          <strong>Important</strong>
         </h2>
-        <h2 className="mt-3 font-serif text-blue-600 text-sm">
-  When you're ready to respond to each question, click <strong>'Record Answer'</strong> to begin. Speak clearly and at a steady pace to ensure accuracy. 
-  <br />
-  You’re expected to record an answer for every question. After the interview, you'll receive detailed feedback with correct answers for comparison, allowing you to assess and reflect on your performance.
+       <h2 className="mt-3 font-serif text-blue-600 text-sm">
+  <p><strong>Note:</strong> Wait for the <strong>"Answer recorded successfully"</strong> toast as the model may be slow.</p>
+  <p>-Use the <strong>'Record Answer'</strong> button to respond to each question.</p>
+  <p>-Speak <strong>clearly</strong> and at a <strong>steady pace</strong> to ensure accuracy.</p>
+  <p>-Ensure you record an answer for <strong>every question</strong>.</p>
+  <p>-After the interview, you'll receive feedback with correct answers to improve performance.</p>
 </h2>
+
+
 
       </div>
     </div>
