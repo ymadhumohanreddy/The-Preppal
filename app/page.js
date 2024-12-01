@@ -1,10 +1,17 @@
 "use client";
 import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import { Button } from "../components/ui/button";
 import Image from "next/image";
 import Header from "./dashboard/_components/Header";
 import { AtomIcon, Edit, Share2 } from "lucide-react";
-import Spline from '@splinetool/react-spline';
+import Spline from "@splinetool/react-spline";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "../components/ui/accordion";
 
 export default function Home() {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,9 +29,58 @@ export default function Home() {
   const typingSpeed = 70; // Adjust typing speed here
   const pauseDuration = 500; // Pause between full title and start of delete
 
+  const faqs = [
+  {
+    question: "Tell me about yourself?",
+    answer:
+      "I am a dedicated [Your Current Position, e.g., 'B.Tech student specializing in Computer Science'] with a strong passion for [specific area of interest, e.g., 'Artificial Intelligence and Machine Learning']. I am currently focusing on enhancing my skills in data structures, algorithms, and web development. Throughout my academic career, I’ve developed proficiency in various programming languages such as [languages you know, e.g., Python, C++, Java] and have applied them to real-world projects. I am eager to further develop my technical skills and contribute meaningfully to a challenging role in the [specific field]."
+  },
+  {
+    question: "Why should we hire you?",
+    answer:
+      "You should hire me because I bring a combination of strong technical skills and a passion for problem-solving. I have consistently demonstrated my ability to [specific skill or attribute, e.g., 'design and implement complex algorithms,' 'build scalable software solutions'] through my [projects/internships]. I am committed to continuous learning, and I thrive in dynamic and challenging environments. My ability to collaborate in team settings, coupled with my technical expertise, will allow me to make a meaningful contribution to your team and help achieve the company's goals."
+  },
+  {
+    question: "What are your short term and long term goals?",
+    answer:
+      "In the short term, my goal is to build on my current skill set by working in a practical, hands-on environment. I aim to refine my problem-solving and coding skills, and contribute to impactful projects in the [field, e.g., 'AI and software development']. In the long term, I see myself growing into a leadership role where I can not only contribute technically but also mentor others, lead teams, and drive key initiatives that shape the direction of [specific area of interest, e.g., 'artificial intelligence in healthcare']. I also plan to pursue further certifications or education to deepen my expertise."
+  },
+  {
+    question: "Tell us more about your projects and internships?",
+    answer:
+      "I’ve worked on several projects during my academic career, including [Project Name 1], where I developed a [brief description of project, e.g., 'web application for tracking fitness data']. In my internship at [Company Name], I had the opportunity to [mention key responsibilities and achievements]. I also contributed to [mention a significant outcome of the internship, e.g., 'improving data analysis processes that resulted in a 20% reduction in processing time']."
+  },
+  {
+    question: "Tell us more about past experience?",
+    answer:
+      "I have gained experience through various internships and projects. My most recent internship was at [Company Name], where I worked on [specific task or project, e.g., 'analyzing large datasets to uncover insights for business strategy']. During this role, I [mention responsibilities or results, e.g., 'streamlined workflows to reduce the time required for data processing by 20%']. I also worked on [mention any relevant projects] which helped me apply theoretical knowledge in real-world applications."
+  },
+  {
+    question: "What are your biggest achievements till date?",
+    answer:
+      "Some of my biggest achievements include:\n1. Successfully leading a team during [Hackathon/Event Name] where we developed [mention the product] in just 48 hours, and securing [mention position/award].\n2. Improving [specific achievement, e.g., 'data visualization techniques during my internship at Company Name'], which resulted in [mention impact].\n3. Achieving a [mention academic achievement, e.g., 'CGPA of 9.27'] while balancing academic projects, internships, and extra-curricular activities."
+  },
+  {
+    question: "Where do you see yourself in 5 years?",
+    answer:
+      "In 5 years, I see myself as an expert in my field, contributing to high-impact projects in [specific area of interest, e.g., 'machine learning and AI']. I aim to have progressed into a leadership role where I am leading a team, mentoring junior colleagues, and driving innovative projects. I also plan to continue learning and growing, whether through certifications or advanced degrees, to stay at the forefront of the industry."
+  },
+  {
+    question: "What are your strengths and weaknesses?",
+    answer:
+      "Strengths: I am a quick learner and highly adaptable, which helps me thrive in dynamic environments. I am also detail-oriented, with a strong ability to analyze problems and create efficient solutions. My ability to collaborate and communicate effectively in team settings has been a key strength throughout my projects and internships.\n\nWeaknesses: One area I’ve been working on is [mention a weakness, e.g., 'being overly critical of my own work']. I have realized that this sometimes slows me down, so I’ve been focusing on balancing high standards with efficiency. I am also working on improving my [mention another area, e.g., 'presentation skills'] by seeking out opportunities to present and receive feedback."
+  },
+  {
+    question: "Do you have any questions for me?",
+    answer:
+      "Yes, I do have a few questions:\n1. What does success look like in this role, and how is it measured?\n2. Could you tell me more about the team I will be working with and how they collaborate?\n3. What are some of the biggest challenges the team/company is currently facing, and how could I contribute to overcoming them?"
+  }
+];
+
+
   useEffect(() => {
     const currentTitle = titles[currentTitleIndex];
-    
+
     if (!isDeleting && displayedText === currentTitle) {
       // Pause before starting to delete
       setTimeout(() => setIsDeleting(true), pauseDuration);
@@ -48,15 +104,14 @@ export default function Home() {
 
   return (
     <div>
-     
-      <section className="z-50 ">
-        <div className="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12  ">
+      <section className="z-50">
+        <div className="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12">
           <a
             href="#bottom"
             className="font-serif inline-flex justify-between items-center py-1 px-1 pr-4 mb-7 text-sm text-white bg-blue-400 rounded-full dark:bg-blue-600 dark:text-white hover:bg-blue-600 dark:hover:bg-blue-700"
             role="alert"
           >
-            <span className="text-xs bg-primary rounded-full text-white px-4 py-1.5 mr-3 dark:text-black ">
+            <span className="text-xs bg-primary rounded-full text-white px-4 py-1.5 mr-3 dark:text-black">
               Tip
             </span>
             <span className="font-serif text-sm font-medium">Scroll Down</span>
@@ -85,7 +140,7 @@ export default function Home() {
               href="/dashboard"
               className="font-serif inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-gradient-to-r from-blue-400 to-blue-700 bg-[length:200%_100%] animate-shine hover:animate-blink focus:ring-4 focus:ring-primary-300 dark:focus:ring-blue-900"
             >
-              Start Your Free Trail
+              Start Your Free Trial
               <svg
                 className="ml-2 -mr-1 w-5 h-5"
                 fill="currentColor"
@@ -120,6 +175,7 @@ export default function Home() {
         </div>
       </section>
 
+      
       <section className="bg-white z-50 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12 dark:bg-[rgb(11,10,10)] dark:text-white">
         <h2 className="font-serif text-3xl">How it Works?</h2>
         <h2 className="font-serif text-md text-gray-500 dark:text-gray-400">
@@ -154,71 +210,38 @@ export default function Home() {
             </p>
           </a>
         </div>
-        <section className="bg-white dark:bg-[rgb(11,10,10)] z-50 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12">
-    <h2 className="font-serif text-3xl mt-10 text-black dark:text-white">Most Frequently Asked HR Questions</h2>
-    <div className="mt-4" id="bottom">
-        <button
-            className="font-serif inline-flex justify-center items-center py-2 px-5 text-base font-medium text-center text-white rounded-lg bg-gradient-to-r from-blue-400 to-blue-700 bg-[length:200%_100%] animate-shine hover:animate-blink focus:ring-4 focus:ring-primary-300 dark:focus:ring-blue-900"
-            onClick={() => setIsOpen(!isOpen)} // Toggle the dropdown
-        >
-            <div className="flex justify-center">
-                <span className="font-serif text-lg text-white dark:text-white">Typical Questions</span>
-            </div>
-
-            <svg
-                className={`w-5 h-5 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-            >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 9l4-4 4 4m0 6l-4 4-4-4" />
-            </svg>
-        </button>
-        {isOpen && (
-            <div className="mt-6 bg-gradient-to-r from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-900 p-6 rounded-lg shadow-lg">
-  <div className="mb-6">
-    <h3 className="font-serif font-bold text-xl text-gray-800 dark:text-white">1. Tell me about yourself.</h3>
-    <p className="font-serif text-sm text-gray-600 dark:text-gray-400 mt-2">
-      Focus on your education, experience, and skills that relate to the position.
-    </p>
-  </div>
-  
-  <div className="mb-6">
-    <h3 className="font-serif font-bold text-xl text-gray-800 dark:text-white">2. What are your strengths?</h3>
-    <p className="font-serif text-sm text-gray-600 dark:text-gray-400 mt-2">
-      Highlight a few key strengths that are relevant to the job.
-    </p>
-  </div>
-
-  <div className="mb-6">
-    <h3 className="font-serif font-bold text-xl text-gray-800 dark:text-white">3. What are your weaknesses?</h3>
-    <p className="font-serif text-sm text-gray-600 dark:text-gray-400 mt-2">
-      Choose a real weakness and explain how you are working to improve it.
-    </p>
-  </div>
-
-  <div className="mb-6">
-    <h3 className="font-serif font-bold text-xl text-gray-800 dark:text-white">4. Why do you want to work here?</h3>
-    <p className="font-serif text-sm text-gray-600 dark:text-gray-400 mt-2">
-      Research the company and mention specific reasons that appeal to you.
-    </p>
-  </div>
-
-  <div className="mb-6">
-    <h3 className="font-serif font-bold text-xl text-gray-800 dark:text-white">5. Where do you see yourself in 5 years?</h3>
-    <p className="font-serif text-sm text-gray-600 dark:text-gray-400 mt-2">
-      Share your career goals and how they align with the company’s direction.
-    </p>
-  </div>
-</div>
-
-        )}
-    </div>
-</section>
       </section>
-      
-
+<section
+  id="bottom"
+  className="bg-white z-50 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12 dark:bg-[rgb(11,10,10)] dark:text-white mt-9"
+>
+  <h2 className="font-serif text-3xl  text-black dark:text-white">
+    Frequently Asked HR Questions
+  </h2>
+  <Accordion type="single" collapsible className="mt-10 space-y-4">
+    {faqs.map((faq, index) => (
+      <AccordionItem
+        key={index}
+        value={`item-${index}`}
+        className="block rounded-xl border bg-white border-gray-200 p-1 shadow-xl transition hover:border-blue-500/10 hover:shadow-blue-500/10 dark:bg-gray-900 dark:border-gray-700 dark:hover:border-blue-500/10"
+      >
+        <AccordionTrigger className="text-lg font-medium text-black px-4 py-2 rounded-t-lg dark:text-white">
+          {faq.question}
+        </AccordionTrigger>
+        <AccordionContent className="text-gray-400 px-4 py-3 bg-gray-900 rounded-b-lg">
+          {faq.answer}
+        </AccordionContent>
+      </AccordionItem>
+    ))}
+  </Accordion>
+</section>
+<footer className="bg-[rgb(11,10,10)] text-white py-6 mt-12">
+  <div className="max-w-screen-xl mx-auto text-center">
+    <p>&copy; {new Date().getFullYear()} PrepPal. All rights reserved.</p>
+    
+  </div>
+</footer>
     </div>
+    
   );
 }
