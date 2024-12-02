@@ -1,23 +1,41 @@
-"use client"
-import React, { useState } from 'react';
-import { FaGithub, FaInstagram, FaLinkedin } from 'react-icons/fa';
-import Spline from '@splinetool/react-spline';
+"use client";
+import React, { useState, useEffect } from "react";
+import { FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa";
+import Spline from "@splinetool/react-spline";
 
 function AboutMe() {
   const [isLoading, setIsLoading] = useState(true);
+  const [progress, setProgress] = useState(0);
 
-  const handleLoad = () => setIsLoading(false);
+  useEffect(() => {
+    let interval;
+    if (isLoading) {
+      interval = setInterval(() => {
+        setProgress((prev) => (prev < 99 ? prev + 1 : prev));
+      }, 50);
+    }
+    return () => clearInterval(interval);
+  }, [isLoading]);
+
+  const handleLoad = () => {
+    setIsLoading(false);
+    setProgress(100);
+  };
 
   return (
     <>
       <section className="flex flex-col items-center justify-center h-[calc(90vh)] overflow-hidden">
-        
-        {/* 3D Spline Scene */}
+        {/* Loading Overlay */}
         {isLoading && (
-          <div className="absolute z-10 flex items-center justify-center w-full h-full bg-white">
+          <div className="absolute z-10 flex flex-col items-center justify-center w-full h-full bg-white">
             <div className="loader border-4 border-blue-400 border-t-transparent rounded-full w-12 h-12 animate-spin"></div>
+            <p className="mt-4 text-lg font-medium text-blue-500">
+              Loading {progress}%
+            </p>
           </div>
         )}
+
+        {/* 3D Spline Scene */}
         <Spline
           scene="https://prod.spline.design/UlThdMSAAnJw9kvW/scene.splinecode"
           onLoad={handleLoad}
@@ -31,7 +49,7 @@ function AboutMe() {
           <br />
           <a 
             href="mailto:yeddulamadhu6@gmail.com" 
-            className='hover:cursor-pointer hover:text-blue-400'
+            className="hover:cursor-pointer hover:text-blue-400"
             aria-label="Send an email to Madhu"
           >
             ~Y.Madhu~
@@ -65,7 +83,6 @@ function AboutMe() {
             <FaInstagram className="text-blue-400 text-3xl transition hover:text-pink-500" />
           </a>
         </div>
-        
       </section>
     </>
   );

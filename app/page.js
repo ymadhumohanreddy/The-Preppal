@@ -6,6 +6,7 @@ import Image from "next/image";
 import Header from "./dashboard/_components/Header";
 import { AtomIcon, Edit, Share2 } from "lucide-react";
 import Spline from "@splinetool/react-spline";
+import { CheckCircle } from 'lucide-react'
 import {
   Accordion,
   AccordionContent,
@@ -28,6 +29,14 @@ export default function Home() {
   const [isDeleting, setIsDeleting] = useState(false);
   const typingSpeed = 70; // Adjust typing speed here
   const pauseDuration = 500; // Pause between full title and start of delete
+const benefits = [
+   'AI-driven practice more effective than static questions',
+    "Flexible practice opportunities accessible anytime, anywhere",
+    "Personalized insights to identify strengths and areas for improvement",
+    "Authentic interview simulations to boost real-world readiness",
+    "Comprehensive preparation across diverse interview formats and styles"
+];
+
 
   const faqs = [
   {
@@ -211,6 +220,25 @@ export default function Home() {
           </a>
         </div>
       </section>
+      <section className="py-20 bg-white dark:bg-[rgb(11,10,10)]">
+            <div className="container mx-auto px-4">
+                <h2 className="text-3xl md:text-4xl font-serif text-center mb-12 text-gray-900 dark:text-white">Why Choose PrepPal?</h2>
+                <div className="max-w-3xl mx-auto">
+                    {benefits.map((benefit, index) => (
+                        <motion.div
+                            key={index}
+                            className="flex items-center mb-4"
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.5, delay: index * 0.1 }}
+                        >
+                            <CheckCircle className="w-6 h-6 text-green-500 dark:text-green-400 mr-4 flex-shrink-0" />
+                            <p className="text-lg font-serif text-gray-700 dark:text-gray-300">{benefit}</p>
+                        </motion.div>
+                    ))}
+                </div>
+            </div>
+        </section>
 <section
   id="bottom"
   className="bg-white z-50 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12 dark:bg-[rgb(11,10,10)] dark:text-white mt-9"
@@ -225,17 +253,17 @@ export default function Home() {
         value={`item-${index}`}
         className="block rounded-xl border bg-white border-gray-200 p-1 shadow-xl transition hover:border-blue-500/10 hover:shadow-blue-500/10 dark:bg-gray-900 dark:border-gray-700 dark:hover:border-blue-500/10"
       >
-        <AccordionTrigger className="text-lg font-medium text-black px-4 py-2 rounded-t-lg dark:text-white">
+        <AccordionTrigger className="text-lg font-serif text-black px-4 py-2 rounded-t-lg dark:text-white">
           {faq.question}
         </AccordionTrigger>
-        <AccordionContent className="text-gray-400 px-4 py-3 bg-gray-900 rounded-b-lg">
+        <AccordionContent className="text-gray-400 px-4 py-3 bg-gray-900 rounded-b-lg font-serif">
           {faq.answer}
         </AccordionContent>
       </AccordionItem>
     ))}
   </Accordion>
 </section>
-<footer className="bg-[rgb(11,10,10)] text-white py-6 mt-12">
+<footer className="bg-white dark:bg-[rgb(11,10,10)] text-black dark:text-white py-2 mt-12">
   <div className="max-w-screen-xl mx-auto text-center">
     <p>&copy; {new Date().getFullYear()} PrepPal. All rights reserved.</p>
     
