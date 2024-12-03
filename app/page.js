@@ -114,29 +114,9 @@ const benefits = [
   return (
     <div>
       <section className="z-50">
-        <div className="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12">
-          <a
-            href="#bottom"
-            className="font-serif inline-flex justify-between items-center py-1 px-1 pr-4 mb-7 text-sm text-white bg-blue-400 rounded-full dark:bg-blue-600 dark:text-white hover:bg-blue-600 dark:hover:bg-blue-700"
-            role="alert"
-          >
-            <span className="text-xs bg-primary rounded-full text-white px-4 py-1.5 mr-3 dark:text-black">
-              Tip
-            </span>
-            <span className="font-serif text-sm font-medium">Scroll Down</span>
-            <svg
-              className="ml-2 w-5 h-5"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                fillRule="evenodd"
-                d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                clipRule="evenodd"
-              ></path>
-            </svg>
-          </a>
+        <div className="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12 mt-44">
+          
+            
           <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white font-serif">
             {displayedText}
           </h1>
@@ -185,7 +165,7 @@ const benefits = [
       </section>
 
       
-      <section className="bg-white z-50 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12 dark:bg-[rgb(11,10,10)] dark:text-white">
+      <section className="bg-white z-50 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12 dark:bg-[rgb(11,10,10)] dark:text-white mt-44">
         <h2 className="font-serif text-3xl">How it Works?</h2>
         <h2 className="font-serif text-md text-gray-500 dark:text-gray-400">
           Give mock interview in just 3 simple easy steps
@@ -220,7 +200,7 @@ const benefits = [
           </a>
         </div>
       </section>
-      <section className="py-20 bg-white dark:bg-[rgb(11,10,10)]">
+      <section className="py-20 bg-white dark:bg-[hsl(0,5%,4%)] mt-44">
             <div className="container mx-auto px-4">
                 <h2 className="text-3xl md:text-4xl font-serif text-center mb-12 text-gray-900 dark:text-white">Why Choose PrepPal?</h2>
                 <div className="max-w-3xl mx-auto">
@@ -241,7 +221,7 @@ const benefits = [
         </section>
 <section
   id="bottom"
-  className="bg-white z-50 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12 dark:bg-[rgb(11,10,10)] dark:text-white mt-9"
+  className="bg-white z-50 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12 dark:bg-[rgb(11,10,10)] dark:text-white mt-36"
 >
   <h2 className="font-serif text-3xl  text-black dark:text-white">
     Frequently Asked HR Questions
