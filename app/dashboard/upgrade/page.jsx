@@ -24,7 +24,7 @@ function Upgrade() {
         </p>
 
         <a
-          className="mt-4 block rounded border border-indigo-600 bg-indigo-600 px-12 py-3 text-center text-sm font-medium text-white hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500  dark:text-gray-200 dark:hover:bg-transparent dark:hover:text-gray-300 sm:mt-6"
+           className="mt-4 block rounded border border-blue-500  bg-blue-500  px-12 py-3 text-center text-sm font-medium text-white hover:bg-transparent hover:text-blue-500  focus:outline-none focus:ring active:text-blue-500 dark:text-gray-200 dark:hover:bg-transparent dark:hover:text-gray-300 sm:mt-6"
           href="/dashboard"
         >
           Get Started
@@ -42,7 +42,7 @@ function Upgrade() {
               viewBox="0 0 24 24"
               strokeWidth="1.5"
               stroke="currentColor"
-              className="size-5 text-indigo-700"
+              className="size-5 text-green-400"
             >
               <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
             </svg>
@@ -57,7 +57,7 @@ function Upgrade() {
               viewBox="0 0 24 24"
               strokeWidth="1.5"
               stroke="currentColor"
-              className="size-5 text-indigo-700"
+              className="size-5 text-green-400"
             >
               <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
             </svg>
@@ -72,7 +72,7 @@ function Upgrade() {
               viewBox="0 0 24 24"
               strokeWidth="1.5"
               stroke="currentColor"
-              className="size-5 text-indigo-700"
+              className="size-5 text-green-400"
             >
               <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
             </svg>
@@ -88,7 +88,7 @@ function Upgrade() {
               viewBox="0 0 24 24"
               strokeWidth="1.5"
               stroke="currentColor"
-              className="size-5 text-indigo-700"
+              className="size-5 text-green-400"
             >
               <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
             </svg>
@@ -103,7 +103,7 @@ function Upgrade() {
               viewBox="0 0 24 24"
               strokeWidth="1.5"
               stroke="currentColor"
-              className="size-5 text-indigo-700"
+              className="size-5 text-green-400"
             >
               <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
             </svg>
@@ -118,7 +118,7 @@ function Upgrade() {
               viewBox="0 0 24 24"
               strokeWidth="1.5"
               stroke="currentColor"
-              className="size-5 text-indigo-700"
+              className="size-5 text-green-400"
             >
               <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
             </svg>
@@ -145,7 +145,7 @@ function Upgrade() {
         </p>
 
         <a
-          className="mt-4 block rounded border border-indigo-600 bg-indigo-600 px-12 py-3 text-center text-sm font-medium text-white hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500 dark:text-gray-200 dark:hover:bg-transparent dark:hover:text-gray-300 sm:mt-6"
+          className="mt-4 block rounded border border-blue-500  bg-blue-500  px-12 py-3 text-center text-sm font-medium text-white hover:bg-transparent hover:text-blue-500  focus:outline-none focus:ring active:text-blue-500 dark:text-gray-200 dark:hover:bg-transparent dark:hover:text-gray-300 sm:mt-6"
           href="https://buy.stripe.com/test_7sI3d46uB6uX58IbIL"
            target="_blank"
   rel="noopener noreferrer"
@@ -165,7 +165,7 @@ function Upgrade() {
               viewBox="0 0 24 24"
               strokeWidth="1.5"
               stroke="currentColor"
-              className="size-5 text-indigo-700"
+              className="size-5 text-green-400"
             >
               <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
             </svg>
@@ -180,7 +180,7 @@ function Upgrade() {
               viewBox="0 0 24 24"
               strokeWidth="1.5"
               stroke="currentColor"
-              className="size-5 text-indigo-700"
+              className="size-5 text-green-400"
             >
               <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
             </svg>
@@ -195,7 +195,7 @@ function Upgrade() {
               viewBox="0 0 24 24"
               strokeWidth="1.5"
               stroke="currentColor"
-              className="size-5 text-indigo-700"
+              className="size-5 text-green-400"
             >
               <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
             </svg>
@@ -226,7 +226,7 @@ function Upgrade() {
               viewBox="0 0 24 24"
               strokeWidth="1.5"
               stroke="currentColor"
-              className="size-5 text-indigo-700"
+              className="size-5 text-green-400"
             >
               <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
             </svg>
@@ -241,7 +241,7 @@ function Upgrade() {
               viewBox="0 0 24 24"
               strokeWidth="1.5"
               stroke="currentColor"
-              className="size-5 text-indigo-700"
+              className="size-5 text-green-400"
             >
               <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
             </svg>
@@ -268,7 +268,7 @@ function Upgrade() {
         </p>
 
         <a
-  className="mt-4 block rounded border border-indigo-600 bg-indigo-600 px-12 py-3 text-center text-sm font-medium text-white hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500 dark:text-gray-200 dark:hover:bg-transparent dark:hover:text-gray-300 sm:mt-6"
+ className="mt-4 block rounded border border-blue-500  bg-blue-500  px-12 py-3 text-center text-sm font-medium text-white hover:bg-transparent hover:text-blue-500  focus:outline-none focus:ring active:text-blue-500 dark:text-gray-200 dark:hover:bg-transparent dark:hover:text-gray-300 sm:mt-6"
   href="https://buy.stripe.com/test_bIY2908CJaLd30AdQR"
   target="_blank"
   rel="noopener noreferrer"
@@ -289,7 +289,7 @@ function Upgrade() {
               viewBox="0 0 24 24"
               strokeWidth="1.5"
               stroke="currentColor"
-              className="size-5 text-indigo-700"
+              className="size-5 text-green-400"
             >
               <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
             </svg>
@@ -304,7 +304,7 @@ function Upgrade() {
               viewBox="0 0 24 24"
               strokeWidth="1.5"
               stroke="currentColor"
-              className="size-5 text-indigo-700"
+              className="size-5 text-green-400"
             >
               <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
             </svg>
@@ -319,7 +319,7 @@ function Upgrade() {
               viewBox="0 0 24 24"
               strokeWidth="1.5"
               stroke="currentColor"
-              className="size-5 text-indigo-700"
+              className="size-5 text-green-400"
             >
               <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
             </svg>
@@ -350,7 +350,7 @@ function Upgrade() {
               viewBox="0 0 24 24"
               strokeWidth="1.5"
               stroke="currentColor"
-              className="size-5 text-indigo-700"
+              className="size-5 text-green-400"
             >
               <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
             </svg>
@@ -365,7 +365,7 @@ function Upgrade() {
               viewBox="0 0 24 24"
               strokeWidth="1.5"
               stroke="currentColor"
-              className="size-5 text-indigo-700"
+              className="size-5 text-green-400"
             >
               <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
             </svg>
