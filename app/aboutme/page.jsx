@@ -32,7 +32,7 @@ function AboutMe() {
           </p>
           <p
             href="mailto:yeddulamadhu6@gmail.com"
-            aria-label="Send an email to Madhu"
+            aria-label="Send an email to Y.Madhu"
             className="mt-1 ml-52 text-center sm:text-left font-serif hover:cursor-pointer hover:text-blue-200"
           >
             ~Y. Madhu Mohan Reddy
@@ -46,7 +46,7 @@ function AboutMe() {
               rel="noopener noreferrer"
               aria-label="Visit Madhu's LinkedIn profile"
             >
-              <FaLinkedin className="text-2xl text-white sm:text-xl hover:text-blue-700 transition" />
+              <FaLinkedin className="text-2xl text-black dark:text-white sm:text-xl hover:text-blue-700 transition" />
             </a>
             <a
               href="https://github.com/ymadhumohanreddy"
@@ -54,7 +54,7 @@ function AboutMe() {
               rel="noopener noreferrer"
               aria-label="Visit Madhu's GitHub profile"
             >
-              <FaGithub className="text-2xl text-white sm:text-xl hover:text-gray-600 transition" />
+              <FaGithub className="text-2xl text-black dark:text-white sm:text-xl hover:text-gray-600 transition" />
             </a>
             <a
               href="https://www.instagram.com/madhu_mohanreddy/"
@@ -62,7 +62,7 @@ function AboutMe() {
               rel="noopener noreferrer"
               aria-label="Visit Madhu's Instagram profile"
             >
-              <FaInstagram className="text-2xl text-white sm:text-xl hover:text-pink-500 transition" />
+              <FaInstagram className="text-2xl text-black dark:text-white sm:text-xl hover:text-pink-500 transition" />
             </a>
           </div>
         </div>
