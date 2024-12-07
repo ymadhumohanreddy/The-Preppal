@@ -33,9 +33,9 @@ function AboutMe() {
           <p
             href="mailto:yeddulamadhu6@gmail.com"
             aria-label="Send an email to Y.Madhu"
-            className="mt-1 ml-52 text-center sm:text-left font-serif hover:cursor-pointer hover:text-blue-200"
+            className="mt-1 ml-72 text-center sm:text-left font-serif hover:cursor-pointer hover:text-blue-200"
           >
-            ~Y. Madhu Mohan Reddy
+            ~Y.M.M.R~
           </p>
 
           {/* Icons just below the name */}
