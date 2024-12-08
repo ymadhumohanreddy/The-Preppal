@@ -30,13 +30,13 @@ function AboutMe() {
           <p className="sm:text-base sm:mt-1 md:text-lg">
             "Good luck with Placements! All I can say is, <strong>Good luck</strong>, and have a great day! ;) "
           </p>
-          <p
+          <a
             href="mailto:yeddulamadhu6@gmail.com"
             aria-label="Send an email to Y.Madhu"
             className="mt-1 ml-72 text-center sm:text-left font-serif hover:cursor-pointer hover:text-blue-200"
           >
             ~Y.M.M.R~
-          </p>
+          </a>
 
           {/* Icons just below the name */}
           <div className="mt-3 ml-3 flex justify-center space-x-6">
