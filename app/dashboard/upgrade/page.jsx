@@ -264,7 +264,7 @@ function Upgrade() {
         <p className="mt-2 sm:mt-4">
           <strong className="text-3xl font-bold text-gray-900 sm:text-4xl dark:text-gray-400"> 100$ </strong>
 
-          <span className="text-sm font-medium text-gray-700 dark:text-gray-400">/yearly</span>
+          <span className="text-sm font-medium text-gray-700 dark:text-gray-400">/year</span>
         </p>
 
         <a
