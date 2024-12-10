@@ -3,7 +3,7 @@ import React from 'react'
 function resume() {
   return (
    <div
-  className="text-align-center"
+  className="text-align-center h-screen overflow-hidden"
   style={{
     display: "flex",
     justifyContent: "center",

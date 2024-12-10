@@ -28,7 +28,7 @@ function AboutMe() {
         {/* Message and Name */}
         <div className="absolute top-4 right-4 z-10 text-xl font-serif text-right sm:text-xl md:text-center lg:text-left">
           <p className="sm:text-base sm:mt-1 md:text-lg">
-            "Good luck with Placements! All I can say is, <strong>Good luck</strong>, and have a great day! ;) "
+           "All I can say is, best of luck with your placements, and have an amazing day ahead!
           </p>
           <a
             href="mailto:yeddulamadhu6@gmail.com"
