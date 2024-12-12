@@ -186,8 +186,7 @@ const benefits = [
             <Edit className="h-8 w-8" />
             <h2 className="mt-4 text-xl font-serif text-black font-bold dark:text-white">Take Interview</h2>
             <p className="mt-1 text-sm text-gray-600 dark:text-gray-400 font-serif">
-              Enable your camera and microphone to simulate a real interview
-              environment and gain the confidence you need to excel.
+              Enhance your interview preparation by enabling your camera and microphone to simulate a real interview environment. Practice face-to-face communication, refine your responses, and build the confidence you need to excel in actual interviews.
             </p>
           </a>
           <a className="block rounded-xl border bg-white border-gray-200 p-8 shadow-xl transition hover:border-blue-500/10 hover:shadow-blue-500/10 dark:bg-gray-900 dark:border-gray-700 dark:hover:border-blue-500/10" href="/dashboard">
