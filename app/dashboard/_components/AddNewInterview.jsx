@@ -107,7 +107,7 @@ function AddNewInterview() {
                   />
                 </div>
                 <div className='my-3 text-blue-400'>
-                  <label htmlFor="jobDesc">Job Description / Tech Stack (In Short)</label>
+                  <label htmlFor="jobDesc">Job Description / Tech Stack</label>
                   <Textarea
                     id="jobDesc"
                     placeholder="Ex. DSA, React, Behavioral questions, etc."
