@@ -167,7 +167,7 @@ const benefits = [
 
       
       <section className="bg-white z-50 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12 dark:bg-[rgb(11,10,10)] dark:text-white mt-44">
-        <h2 className="font-serif text-3xl">How it Works?</h2>
+        <h2 className="text-3xl md:text-4xl font-serif text-center mb-12 text-gray-900 dark:text-white">How it Works?</h2>
         <h2 className="font-serif text-md text-gray-500 dark:text-gray-400">
           Give mock interview in just 3 simple easy steps
         </h2>
@@ -223,7 +223,7 @@ const benefits = [
   id="bottom"
   className="bg-white z-50 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12 dark:bg-[rgb(11,10,10)] dark:text-white mt-36"
 >
-  <h2 className="font-serif text-3xl  text-black dark:text-white">
+  <h2 className="text-3xl md:text-4xl font-serif text-center mb-12 text-gray-900 dark:text-white">
     Frequently Asked HR Questions
   </h2>
   <Accordion type="single" collapsible className="mt-10 space-y-4">
