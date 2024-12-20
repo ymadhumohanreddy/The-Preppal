@@ -55,8 +55,8 @@ const Header = () => {
               <NavLink href="/dashboard/upgrade" currentPath={path}>
                 Pricing
               </NavLink>
-              <NavLink href="/dashboard/resume" currentPath={path}>
-                AI Resume
+              <NavLink href="/dashboard/notes" currentPath={path}>
+                Notes
               </NavLink>
               <NavLink href="/aboutme" currentPath={path}>
                 About
@@ -110,11 +110,11 @@ const Header = () => {
               Pricing
             </MobileNavLink>
             <MobileNavLink
-              href="/dashboard/resume"
+              href="/dashboard/notes"
               currentPath={path}
               onClick={closeMenu}
             >
-              AI Resume
+              Notes
             </MobileNavLink>
             <MobileNavLink
               href="/aboutme"
