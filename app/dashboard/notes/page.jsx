@@ -40,7 +40,7 @@ function Resume() {
       {/* Recommended Courses Section */}
       <div className="container mx-auto lg:my-2">
         {/* Title Section */}
-        <h2 className="text-3xl font-medium title-font text-gray-900 my-10 text-center dark:text-blue-500 hover:underline">
+        <h2 className="text-3xl font-medium title-font text-gray-900 my-10 text-center dark:text-white hover:underline">
           Most Reputable
         </h2>
 
