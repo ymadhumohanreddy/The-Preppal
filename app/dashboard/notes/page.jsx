@@ -10,10 +10,11 @@ function Resume() {
           { title: "CSS", image: "https://www.codewithharry.com/img/notes/css.webp", link: "https://cwh-full-next-space.fra1.cdn.digitaloceanspaces.com/notes/CSS_Complete_Notes.pdf" },
           { title: "JavaScript", image: "https://www.codewithharry.com/img/notes/js.webp", link: "https://cwh-full-next-space.fra1.cdn.digitaloceanspaces.com/notes/JS_Chapterwise_Notes.pdf" },
           { title: "React", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQij9uDL_BAEPp_gqSI8ug_CJCjLdyw4oLDUw&s", link: "https://drive.google.com/file/d/1688SoMN4OX1hQBXxjiRuOicjH5idIjwO/view?usp=sharing" },
-          { title: "C", image: "https://www.codewithharry.com/img/notes/c.webp", link: "https://cwh-full-next-space.fra1.cdn.digitaloceanspaces.com/notes/C_Complete_Notes.pdf" },
+          { title: "Android", image: "https://www.codewithharry.com/img/notes/android.webp", link: "https://cwh-full-next-space.fra1.cdn.digitaloceanspaces.com/notes/Android_CompleteNotes.pdf" },
           { title: "Java", image: "https://www.codewithharry.com/img/notes/java.webp", link: "https://cwh-full-next-space.fra1.cdn.digitaloceanspaces.com/notes/Java_ChapterWise_Notes.zip" },
           { title: "MySQL", image: "https://www.codewithharry.com/img/notes/mysql.webp", link: "https://drive.google.com/file/d/14Digbc_0Q3N2YkAQ4VKdbFpz6UjK-yN_/view?usp=sharing" },
-          { title: "Android", image: "https://www.codewithharry.com/img/notes/android.webp", link: "https://cwh-full-next-space.fra1.cdn.digitaloceanspaces.com/notes/Android_CompleteNotes.pdf" }
+          { title: "DSA", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTy5c_SvC6iawJl6SMrU_iDjFtmKodQ9LKFcmh8VFEnUQWkGsdSHikBWarXnoLR6YfBLgo&usqp=CAU", link: "https://github.com/Deeksha2501/Data-Structures-and-Algorithms-Notes" }
+          
         ].map((item, index) => (
           <div key={index} className="p-6 flex justify-center">
             <div className="w-full max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
