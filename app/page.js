@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect,useRef} from "react";
 import { motion } from "framer-motion";
 import { Button } from "../components/ui/button";
 import Image from "next/image";
@@ -21,14 +21,14 @@ export default function Home() {
     "Master Your Interview with AI",
     "Elevate Your Interview Game with AI",
     "Ace Your Next Interview with PrepPal",
-    "Unlock Your Interview Potential with AI",
+    "Unlock Your Interview Potential with AI"
   ];
 
   const [currentTitleIndex, setCurrentTitleIndex] = useState(0);
   const [displayedText, setDisplayedText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
-  const typingSpeed = 70; // Adjust typing speed here
-  const pauseDuration = 500; // Pause between full title and start of delete
+  const typingSpeed = 50; // Adjust typing speed here
+  const pauseDuration = 600; // Pause between full title and start of delete
 const benefits = [
    'AI-driven practice more effective than static questions',
     "Flexible practice opportunities accessible anytime, anywhere",
@@ -90,47 +90,54 @@ const benefits = [
   useEffect(() => {
     const currentTitle = titles[currentTitleIndex];
 
-    if (!isDeleting && displayedText === currentTitle) {
-      // Pause before starting to delete
-      setTimeout(() => setIsDeleting(true), pauseDuration);
-    } else if (isDeleting && displayedText === "") {
-      // Move to the next title after delete
-      setIsDeleting(false);
+  if (displayedText === currentTitle) {
+    // Pause before switching to the next title
+    setTimeout(() => {
       setCurrentTitleIndex((prevIndex) => (prevIndex + 1) % titles.length);
-    } else {
-      // Typing or deleting characters
-      const timeout = setTimeout(() => {
-        setDisplayedText((prev) =>
-          isDeleting
-            ? prev.slice(0, prev.length - 1)
-            : currentTitle.slice(0, prev.length + 1)
-        );
-      }, typingSpeed);
+      setDisplayedText(""); // Reset for the next title
+    }, pauseDuration);
+  } else {
+    // Typing characters
+    const timeout = setTimeout(() => {
+      setDisplayedText((prev) => currentTitle.slice(0, prev.length + 1));
+    }, typingSpeed);
 
-      return () => clearTimeout(timeout);
+    return () => clearTimeout(timeout);
     }
   }, [displayedText, isDeleting, currentTitleIndex]);
 
   return (
+    
     <div>
-      
+      <section className="z-50"></section>
       <section className="z-50">
         <div className="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12 mt-44">
           
             
-          <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white font-serif">
-            {displayedText}
-          </h1>
+          <h1 className="mb-4 text-5xl font-extrabold tracking-tight  leading-none text-gray-900 md:text-5xl lg:text-8xl dark:text-white font-serif animate-slideDown">
+            Welcome to <span className="text-transparent font-serif font-bold bg-gradient-to-r from-blue-400 via-blue-700 to-blue-400 bg-clip-text animate-shine "> PrepPal </span>
+            </h1>
+            <h4 className="text-4xl font-serif font-bold text-gray-800 md:text-5xl dark:text-white">
+
+  <span className="text-transparent font-serif font-bold bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 bg-clip-text animate-shine">
+  {displayedText}
+</span>
+<span className="typed-cursor" aria-hidden="true">|</span>
+
+</h4>
+
+
+           
+         
           <p className="font-serif mb-8 text-lg text-gray-500 lg:text-xl sm:px-16 xl:px-48 dark:text-gray-400">
-            Prep with PrepPal to enhance your skills and ace that next interview
-            with ease!
+           
           </p>
           <div className="flex flex-col mb-8 lg:mb-16 space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
             <a
               href="/dashboard"
               className="font-serif inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-gradient-to-r from-blue-400 to-blue-700 bg-[length:200%_100%] animate-shine hover:animate-blink focus:ring-4 focus:ring-primary-300 dark:focus:ring-blue-900"
             >
-              Start Your Free Trial
+              Get started for free
               <svg
                 className="ml-2 -mr-1 w-5 h-5"
                 fill="currentColor"
@@ -164,6 +171,21 @@ const benefits = [
           </div>
         </div>
       </section>
+   <div className="mt-20 relative w-[70%] h-auto align-middle mx-auto rounded-xl overflow-hidden md:w-[80%] sm:block md:block lazyload animate-slideUp border-2 shadow-[0px_-4px_50px_6px_rgba(0,0,0,0.7)] dark:shadow-[0px_-4px_50px_6px_rgba(255,255,255,0.7)]">
+
+
+  <Image
+    alt="hero-dashboard"
+    src="/firstpic.png"
+    width={1296}
+    height={640}
+    className="h-auto w-full object-cover"
+    loading="lazy"
+    decoding="async"
+    quality={75}
+    sizes="(max-width: 1920px) 100vw, 1920px"
+  />
+</div>
 
       
       <section className="bg-white z-50 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12 dark:bg-[rgb(11,10,10)] dark:text-white mt-44">

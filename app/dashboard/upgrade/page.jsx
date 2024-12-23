@@ -383,6 +383,6 @@ function Upgrade() {
 
 export default Upgrade
 export const metadata = {
-  title: "Pricing - Prep with PrepPal",
+  title: "Upgrade | PrepPal",
   description: "Prep with Prepal to ace your next interview!",
 };

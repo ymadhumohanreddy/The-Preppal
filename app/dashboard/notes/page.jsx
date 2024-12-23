@@ -161,3 +161,7 @@ function Resume() {
 }
 
 export default Resume;
+export const metadata = {
+  title: "Notes | PrepPal",
+  description: "Prep with Prepal to ace your next interview!",
+};
