@@ -17,11 +17,11 @@ import {
 export default function Home() {
   const [isOpen, setIsOpen] = useState(false);
   const titles = [
-    "Your Personal AI Interview Coach",
-    "Master Your Interview with AI",
-    "Elevate Your Interview Game with AI",
-    "Ace Your Next Interview with PrepPal",
-    "Unlock Your Interview Potential with AI"
+    "Your Personal AI Mock Interview",
+    "Master Your Interview Skills",
+    "Elevate Your Interview Game",
+    "Ace Your Next Interview with ease",
+    "Unlock Your Interview Potential"
   ];
 
   const [currentTitleIndex, setCurrentTitleIndex] = useState(0);
