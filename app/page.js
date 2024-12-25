@@ -119,7 +119,7 @@ const benefits = [
             </h1>
             <h4 className="text-4xl font-serif font-bold text-gray-800 md:text-5xl dark:text-white">
 
- <span className="text-transparent font-serif font-bold bg-gradient-to-r from-teal-400 via-emerald-500 to-yellow-400 bg-clip-text animate-shine">
+ <span className="text-transparent font-serif font-bold bg-gradient-to-r from-indigo-500 via-purple-500 to-indigo-500 bg-clip-text animate-shine">
   {displayedText}
 </span>
 
