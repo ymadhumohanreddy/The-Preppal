@@ -119,9 +119,10 @@ const benefits = [
             </h1>
             <h4 className="text-4xl font-serif font-bold text-gray-800 md:text-5xl dark:text-white">
 
-  <span className="text-transparent font-serif font-bold bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 bg-clip-text animate-shine">
+ <span className="text-transparent font-serif font-bold bg-gradient-to-r from-teal-400 via-emerald-500 to-yellow-400 bg-clip-text animate-shine">
   {displayedText}
 </span>
+
 <span className="typed-cursor" aria-hidden="true">|</span>
 
 </h4>
@@ -171,9 +172,7 @@ const benefits = [
           </div>
         </div>
       </section>
-   <div className="mt-20 relative w-[70%] h-auto align-middle mx-auto rounded-xl overflow-hidden md:w-[80%] sm:block md:block lazyload animate-slideUp border-2 shadow-[0px_-4px_50px_6px_rgba(0,0,0,0.7)] dark:shadow-[0px_-4px_50px_6px_rgba(255,255,255,0.7)]">
-
-
+   <div className="mt-20 relative w-[70%] h-auto align-middle mx-auto rounded-xl overflow-hidden md:w-[80%] lazyload animate-slideUp border-2 shadow-[0px_-4px_50px_6px_rgba(0,0,0,0.7)] dark:shadow-[0px_-4px_50px_6px_rgba(255,255,255,0.7)] hidden lg:block md:block">
   <Image
     alt="hero-dashboard"
     src="/firstpic.png"
