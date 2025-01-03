@@ -264,11 +264,66 @@ const benefits = [
     ))}
   </Accordion>
 </section>
-<footer className="bg-white dark:bg-[rgb(11,10,10)] text-black dark:text-white py-2 mt-12">
-  <div className="max-w-screen-xl mx-auto text-center">
-    <p>&copy; {new Date().getFullYear()} PrepPal. All rights reserved.</p>
-    
-  </div>
+<footer className="w-full bg-gray-900 text-white py-5 dark:bg-gray-900">
+    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col lg:flex-row justify-between items-center lg:items-start space-y-6 lg:space-y-0">
+           
+            <div className="flex flex-col items-center lg:items-start">
+                <Image
+                                src="/fulllogo-.png"
+                                width={100}
+                                height={100}
+                                alt="PrepPal logo"
+                                className="h-10 w-auto"
+                              />
+                <p className="text-center lg:text-left text-gray-400">Prep with PrepPal to ace your next interview</p>
+            </div>
+           
+            <div className="flex flex-col lg:flex-row lg:space-x-8 text-center lg:text-left">
+                <div className="w-full lg:w-auto grid grid-cols-1 sm:grid-cols-2 gap-4 lg:flex lg:space-x-8">
+                    <div>
+                        <h6 className="font-semibold mb-2 text-white">Support</h6>
+                        <ul className="space-y-2">
+  <li>
+    <a 
+      href="mailto:yeddulamadhu6@gmail.com" 
+      className="hover:underline" 
+      target="_blank" 
+      rel="noopener noreferrer"
+    >
+      FAQs
+    </a>
+  </li>
+  <li>
+    <a 
+      href="https://www.linkedin.com/company/preppalpage" 
+      className="hover:underline" 
+      target="_blank" 
+      rel="noopener noreferrer"
+    >
+      Contact
+    </a>
+  </li>
+  <li>
+    <a 
+      href="https://github.com/ymadhumohanreddy/The-Preppal" 
+      className="hover:underline" 
+      target="_blank" 
+      rel="noopener noreferrer"
+    >
+      Contribute
+    </a>
+  </li>
+</ul>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div className="mt-8 border-t border-gray-700 pt-6 text-center lg:text-left flex flex-col lg:flex-row justify-between items-center">
+            <p className="text-gray-400">© 2025 PrepPal. All rights reserved.</p>
+        </div>
+    </div>
 </footer>
     </div>
     

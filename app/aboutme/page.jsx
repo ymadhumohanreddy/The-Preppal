@@ -78,7 +78,7 @@ function AboutMe() {
         )}
 
         {/* Spline Component */}
-        <Spline scene="https://prod.spline.design/sTUJrn9hWcezm1uG/scene.splinecode" onLoad={handleLoad} />
+        <Spline  scene="https://prod.spline.design/sTUJrn9hWcezm1uG/scene.splinecode" onLoad={handleLoad} />
       </div>
     </>
   );
