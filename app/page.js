@@ -264,7 +264,7 @@ const benefits = [
     ))}
   </Accordion>
 </section>
-<footer className="w-full bg-gray-900 text-white py-5 dark:bg-gray-900">
+<footer className="w-full bg-gray-900 text-white py-5 dark:bg-gray-900 sm:mt-10 mt-10 md:mt-10 lg:mt-10">
     <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row justify-between items-center lg:items-start space-y-6 lg:space-y-0">
            
