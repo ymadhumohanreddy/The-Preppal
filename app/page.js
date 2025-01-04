@@ -1,12 +1,13 @@
+
 "use client";
-import { useState, useEffect,useRef} from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
+import CelebrationBanner from '../components/CelebrationBanner';
 import { Button } from "../components/ui/button";
 import Image from "next/image";
 import Header from "./dashboard/_components/Header";
-import { AtomIcon, Edit, Share2 } from "lucide-react";
+import { AtomIcon, Edit, Share2, CheckCircle } from "lucide-react";
 import Spline from "@splinetool/react-spline";
-import { CheckCircle } from 'lucide-react'
 import {
   Accordion,
   AccordionContent,
@@ -109,6 +110,10 @@ const benefits = [
   return (
     
     <div>
+      <div>
+      {/* You can render the CelebrationBanner component here */}
+      <CelebrationBanner />
+    </div>
       <section className="z-50"></section>
       <section className="z-50">
         <div className="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12 mt-44">
@@ -282,7 +287,7 @@ const benefits = [
             <div className="flex flex-col lg:flex-row lg:space-x-8 text-center lg:text-left">
                 <div className="w-full lg:w-auto grid grid-cols-1 sm:grid-cols-2 gap-4 lg:flex lg:space-x-8">
                     <div>
-                        <h6 className="font-semibold mb-2 text-white">Support</h6>
+  
                         <ul className="space-y-2">
   <li>
     <a 
@@ -291,7 +296,7 @@ const benefits = [
       target="_blank" 
       rel="noopener noreferrer"
     >
-      FAQs
+      Contact
     </a>
   </li>
   <li>
@@ -301,7 +306,7 @@ const benefits = [
       target="_blank" 
       rel="noopener noreferrer"
     >
-      Contact
+      Social
     </a>
   </li>
   <li>

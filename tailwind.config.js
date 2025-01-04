@@ -59,38 +59,46 @@ module.exports = {
         sans: ["Inter", "sans-serif"],
       },
       keyframes: {
-        typing: {
-          "0%": { width: "0%" },
-          "100%": { width: "100%" },
-        },
-        slideDown: {
-          "0%": { transform: "translateY(-50px)", opacity: 0 },
-          "100%": { transform: "translateY(0)", opacity: 1 },
-        },
-        blink: {
-          "50%": { borderColor: "transparent" },
-        },
-        shine: {
-          "0%": { backgroundPosition: "200% 0" },
-          "100%": { backgroundPosition: "-200% 0" },
-        },
-        flow: {
-          "0%": { backgroundPosition: "200% 0" },
-          "100%": { backgroundPosition: "-200% 0" },
-        },
-        slideUp: {
-          "0%": { transform: "translateY(50px)", opacity: 0 },
-          "100%": { transform: "translateY(0)", opacity: 1 },
-        },
-      },
-      animation: {
-        typing: "typing 0.3s steps(30, end) forwards", // Faster typing animation
-        blink: "blink 0.9s step-end infinite",
-        flow: "flow 3s linear infinite",
-        shine: "shine 3s linear infinite",
-        slideUp: "slideUp 1s ease-out",
-        slideDown: "slideDown 1s ease-in-out",
-      },
+  typing: {
+    "0%": { width: "0%" },
+    "100%": { width: "100%" },
+  },
+  slideDown: {
+    "0%": { transform: "translateY(-50px)", opacity: 0 },
+    "100%": { transform: "translateY(0)", opacity: 1 },
+  },
+  blink: {
+    "50%": { borderColor: "transparent" },
+  },
+  shine: {
+    "0%": { backgroundPosition: "200% 0" },
+    "100%": { backgroundPosition: "-200% 0" },
+  },
+  flow: {
+    "0%": { backgroundPosition: "200% 0" },
+    "100%": { backgroundPosition: "-200% 0" },
+  },
+  slideUp: {
+    "0%": { transform: "translateY(50px)", opacity: 0 },
+    "100%": { transform: "translateY(0)", opacity: 1 },
+  },
+  shake: {
+    "0%, 100%": { transform: "translateX(0)" },
+    "25%": { transform: "translateX(-5px)" },
+    "50%": { transform: "translateX(5px)" },
+    "75%": { transform: "translateX(-5px)" },
+  },
+},
+animation: {
+  typing: "typing 0.3s steps(30, end) forwards", // Faster typing animation
+  blink: "blink 0.9s step-end infinite",
+  flow: "flow 3s linear infinite",
+  shine: "shine 3s linear infinite",
+  slideUp: "slideUp 1s ease-out",
+  slideDown: "slideDown 1s ease-in-out",
+  shake: "shake 0.5s ease-in-out infinite", // Shaking animation
+},
+
     },
   },
   plugins: [require("tailwindcss-animate")],
