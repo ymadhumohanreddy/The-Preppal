@@ -18,7 +18,7 @@ const CelebrationBanner = () => {
         <div className="flex justify-center items-center space-x-2">
           <span className="text-lg animate-pulse">🎉</span>
           <p className="text-lg font-medium leading-tight">
-            We’ve hit the 100-user limit! If you want to try PrepPal, just reach out, and we’ll make it happen!
+          We’ve hit the 100-user milestone—thank you,everyone!
           </p>
           <span className="text-lg animate-pulse">🎉</span>
         </div>
