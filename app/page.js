@@ -111,8 +111,6 @@ const benefits = [
     
     <div>
       <div>
-      {/* You can render the CelebrationBanner component here */}
-      <CelebrationBanner />
     </div>
       <section className="z-50"></section>
       <section className="z-50">
