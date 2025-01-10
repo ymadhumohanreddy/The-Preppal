@@ -21,8 +21,8 @@ export default function Home() {
     "Your Personal AI Mock Interview",
     "Master Your Interview Skills",
     "Elevate Your Interview Game",
-    "Ace Your Next Interview with ease",
-    "Unlock Your Interview Potential"
+    "Ace Your Next Interview",
+    "Unlock Interview Potential"
   ];
 
   const [currentTitleIndex, setCurrentTitleIndex] = useState(0);
