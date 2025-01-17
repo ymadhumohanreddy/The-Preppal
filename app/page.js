@@ -2,6 +2,7 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
+import { FaLinkedin, FaGithub, FaEnvelope } from 'react-icons/fa';
 import CelebrationBanner from '../components/CelebrationBanner';
 import { Button } from "../components/ui/button";
 import Image from "next/image";
@@ -267,67 +268,40 @@ const benefits = [
     ))}
   </Accordion>
 </section>
-<footer className="w-full bg-gray-900 text-white py-5 dark:bg-gray-900 sm:mt-10 mt-10 md:mt-10 lg:mt-10">
-    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col lg:flex-row justify-between items-center lg:items-start space-y-6 lg:space-y-0">
-           
-            <div className="flex flex-col items-center lg:items-start">
-                <Image
-                                src="/fulllogo-.png"
-                                width={100}
-                                height={100}
-                                alt="PrepPal logo"
-                                className="h-10 w-auto"
-                              />
-                <p className="text-center lg:text-left text-gray-400">Prep with PrepPal to ace your next interview</p>
-            </div>
-           
-            <div className="flex flex-col lg:flex-row lg:space-x-8 text-center lg:text-left">
-                <div className="w-full lg:w-auto grid grid-cols-1 sm:grid-cols-2 gap-4 lg:flex lg:space-x-8">
-                    <div>
-  
-                        <ul className="space-y-2">
-  <li>
-    <a 
-      href="mailto:yeddulamadhu6@gmail.com" 
-      className="hover:underline" 
-      target="_blank" 
-      rel="noopener noreferrer"
-    >
-      Contact
-    </a>
-  </li>
-  <li>
-    <a 
-      href="https://www.linkedin.com/company/preppalpage" 
-      className="hover:underline" 
-      target="_blank" 
-      rel="noopener noreferrer"
-    >
-      Social
-    </a>
-  </li>
-  <li>
-    <a 
-      href="https://github.com/ymadhumohanreddy/The-Preppal" 
-      className="hover:underline" 
-      target="_blank" 
-      rel="noopener noreferrer"
-    >
-      Contribute
-    </a>
-  </li>
-</ul>
-
-                    </div>
-                </div>
-            </div>
+ <footer className="w-full bg-gray-900 text-white py-4 dark:bg-gray-900 sm:mt-5 mt-5 md:mt-5 lg:mt-5">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center border-t border-gray-700 pt-4 text-sm text-gray-400">
+          <p>© 2025 PrepPal. All rights reserved.</p>
+          <div className="flex space-x-4">
+            <a
+              href="https://www.linkedin.com/company/preppalpage/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Visit LinkedIn profile"
+              className="text-gray-400 hover:text-blue-600 transition"
+            >
+              <FaLinkedin className="text-xl" />
+            </a>
+            <a
+              href="https://github.com/ymadhumohanreddy/The-Preppal"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Visit GitHub profile"
+              className="text-gray-400 hover:text-gray-600 transition"
+            >
+              <FaGithub className="text-xl" />
+            </a>
+            <a
+              href="mailto:yeddulamadhu6@gmail.com"
+              aria-label="Send Email"
+              className="text-gray-400 hover:text-yellow-500 transition"
+            >
+              <FaEnvelope className="text-xl" />
+            </a>
+          </div>
         </div>
-        <div className="mt-8 border-t border-gray-700 pt-6 text-center lg:text-left flex flex-col lg:flex-row justify-between items-center">
-            <p className="text-gray-400">© 2025 PrepPal. All rights reserved.</p>
-        </div>
-    </div>
-</footer>
+      </div>
+    </footer>
     </div>
     
   );
