@@ -46,14 +46,7 @@ npm install
 yarn install
 ```
 
-3. Configure environment variables:
-Create a `.env.local` file in the root directory and add the following:
-```plaintext
-DATABASE_URL="postgresql://user:password@localhost:5432/preppal"
-NEXT_PUBLIC_API_KEY="your_api_key"
-```
-
-4. Start the development server:
+3. Start the development server:
 ```bash
 npm run dev
 # OR
