@@ -12,15 +12,23 @@ const Header = () => {
   const path = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
-  const { isSignedIn, user } = useUser();
+  const [isMounted, setIsMounted] = useState(false);
+  const { isSignedIn } = useUser();
+
+  // Ensure useUser() is only accessed after the component mounts
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   useEffect(() => {
-    const darkModePreference = localStorage.getItem("darkMode");
-    setIsDarkMode(
-      darkModePreference === "true" ||
+    if (typeof window !== "undefined") {
+      const darkModePreference = localStorage.getItem("darkMode");
+      setIsDarkMode(
+        darkModePreference === "true" ||
         (darkModePreference === null &&
           window.matchMedia("(prefers-color-scheme: dark)").matches)
-    );
+      );
+    }
   }, []);
 
   useEffect(() => {
@@ -28,10 +36,7 @@ const Header = () => {
     localStorage.setItem("darkMode", isDarkMode.toString());
   }, [isDarkMode]);
 
-  const toggleDarkMode = () => {
-    setIsDarkMode((prevMode) => !prevMode);
-  };
-
+  const toggleDarkMode = () => setIsDarkMode((prevMode) => !prevMode);
   const closeMenu = () => setIsMobileMenuOpen(false);
 
   return (
@@ -49,18 +54,10 @@ const Header = () => {
               />
             </Link>
             <nav className="hidden md:ml-6 md:flex md:space-x-8">
-              <NavLink href="/dashboard" currentPath={path}>
-                Dashboard
-              </NavLink>
-              <NavLink href="/dashboard/upgrade" currentPath={path}>
-                Pricing
-              </NavLink>
-              <NavLink href="/dashboard/notes" currentPath={path}>
-                Notes
-              </NavLink>
-              <NavLink href="/aboutme" currentPath={path}>
-                About
-              </NavLink>
+              <NavLink href="/dashboard" currentPath={path}>Dashboard</NavLink>
+              <NavLink href="/dashboard/upgrade" currentPath={path}>Pricing</NavLink>
+              <NavLink href="/dashboard/notes" currentPath={path}>Notes</NavLink>
+              <NavLink href="/aboutme" currentPath={path}>About</NavLink>
             </nav>
           </div>
           <div className="flex items-center">
@@ -71,15 +68,19 @@ const Header = () => {
             >
               {isDarkMode ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
             </button>
-            {isSignedIn ? (
+
+            {isMounted && (isSignedIn ? (
               <div className="ml-4">
                 <UserButton afterSignOutUrl="/" />
               </div>
             ) : (
-              <Link href="/sign-in" className="ml-4">
-                <Button>Login</Button>
+              <Link href="/sign-in" passHref>
+                <Button asChild>
+                  <span>Login</span>
+                </Button>
               </Link>
-            )}
+            ))}
+
             <div className="ml-4 md:hidden">
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -95,34 +96,10 @@ const Header = () => {
       {isMobileMenuOpen && (
         <div className="md:hidden">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            <MobileNavLink
-              href="/dashboard"
-              currentPath={path}
-              onClick={closeMenu}
-            >
-              Dashboard
-            </MobileNavLink>
-            <MobileNavLink
-              href="/dashboard/upgrade"
-              currentPath={path}
-              onClick={closeMenu}
-            >
-              Pricing
-            </MobileNavLink>
-            <MobileNavLink
-              href="/dashboard/notes"
-              currentPath={path}
-              onClick={closeMenu}
-            >
-              Notes
-            </MobileNavLink>
-            <MobileNavLink
-              href="/aboutme"
-              currentPath={path}
-              onClick={closeMenu}
-            >
-              About
-            </MobileNavLink>
+            <MobileNavLink href="/dashboard" currentPath={path} onClick={closeMenu}>Dashboard</MobileNavLink>
+            <MobileNavLink href="/dashboard/upgrade" currentPath={path} onClick={closeMenu}>Pricing</MobileNavLink>
+            <MobileNavLink href="/dashboard/notes" currentPath={path} onClick={closeMenu}>Notes</MobileNavLink>
+            <MobileNavLink href="/aboutme" currentPath={path} onClick={closeMenu}>About</MobileNavLink>
           </div>
         </div>
       )}
@@ -130,6 +107,7 @@ const Header = () => {
   );
 };
 
+// Navigation Link Components
 const NavLink = ({ href, currentPath, children }) => (
   <Link
     href={href}
