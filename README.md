@@ -12,7 +12,7 @@ PrepPal is an AI-driven web application designed to help users prepare for inter
 
 ## Features
 
-- **Question Prompts:** Generate interview questions based on topics or difficulty level
+- **Question Prompts:** Generate interview questions based on topics or difficulty levels
 - **Real-time Feedback:** Get instant feedback on your responses, including suggestions for improvement
 - **Collapsible Feedback View:** User-friendly interface with collapsible sections for feedback per question
 - **Session Storage:** Each interview session is stored, allowing users to review past feedback and track improvement
