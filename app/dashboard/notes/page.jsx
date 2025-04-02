@@ -11,7 +11,7 @@ function Resume() {
           { title: "JavaScript", image: "https://www.codewithharry.com/img/notes/js.webp", link: "https://cwh-full-next-space.fra1.cdn.digitaloceanspaces.com/notes/JS_Chapterwise_Notes.pdf" },
           { title: "React", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQij9uDL_BAEPp_gqSI8ug_CJCjLdyw4oLDUw&s", link: "https://drive.google.com/file/d/1688SoMN4OX1hQBXxjiRuOicjH5idIjwO/view?usp=sharing" },
           { title: "Python", image: "https://i0.wp.com/junilearning.com/wp-content/uploads/2020/06/python-programming-language.webp?fit=1920%2C1920&ssl=1", link: "https://drive.google.com/file/d/1XE12hZBnbUMJeC614Ikoi2h2eRE73oPR/view?usp=sharing" },
-          { title: "Java", image: "https://www.codewithharry.com/img/notes/java.webp", link: "https://drive.google.com/file/d/1XM0Oo-TislceCX0sTz4UfgJ4pT_8vt5O/view?usp=sharing" },
+          { title: "Java", image: "https://www.codewithharry.com/img/notes/java.webp", link: "https://drive.google.com/file/d/1j8NjTwLoLlhn6l7gexPF551RP5tYTvn-/view?usp=sharing" },
           { title: "CN,OS,DBMS", image: "https://pbs.twimg.com/profile_images/1550409928740839425/F_REEzQ9_400x400.jpg", link: "https://drive.google.com/drive/folders/1mO3m2d9yAutNVyQNTYFk64UauokrWWO7" },
           { title: "DSA", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTy5c_SvC6iawJl6SMrU_iDjFtmKodQ9LKFcmh8VFEnUQWkGsdSHikBWarXnoLR6YfBLgo&usqp=CAU", link: "https://github.com/Deeksha2501/Data-Structures-and-Algorithms-Notes" }
           
