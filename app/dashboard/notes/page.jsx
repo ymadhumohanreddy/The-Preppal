@@ -6,32 +6,42 @@ function Resume() {
       {/* Grid of Downloadable Resources */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 mt-7">
         {[ 
-          { title: "HTML", image: "https://www.codewithharry.com/img/notes/html.webp", link: "https://cwh-full-next-space.fra1.cdn.digitaloceanspaces.com/notes/HTML_Complete_Notes.pdf" },
-          { title: "CSS", image: "https://www.codewithharry.com/img/notes/css.webp", link: "https://cwh-full-next-space.fra1.cdn.digitaloceanspaces.com/notes/CSS_Complete_Notes.pdf" },
-          { title: "JavaScript", image: "https://www.codewithharry.com/img/notes/js.webp", link: "https://cwh-full-next-space.fra1.cdn.digitaloceanspaces.com/notes/JS_Chapterwise_Notes.pdf" },
-          { title: "React", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQij9uDL_BAEPp_gqSI8ug_CJCjLdyw4oLDUw&s", link: "https://drive.google.com/file/d/1688SoMN4OX1hQBXxjiRuOicjH5idIjwO/view?usp=sharing" },
-          { title: "Python", image: "https://i0.wp.com/junilearning.com/wp-content/uploads/2020/06/python-programming-language.webp?fit=1920%2C1920&ssl=1", link: "https://drive.google.com/file/d/1XE12hZBnbUMJeC614Ikoi2h2eRE73oPR/view?usp=sharing" },
-          { title: "Java", image: "https://www.codewithharry.com/img/notes/java.webp", link: "https://drive.google.com/file/d/1j8NjTwLoLlhn6l7gexPF551RP5tYTvn-/view?usp=sharing" },
-          { title: "CN,OS,DBMS", image: "https://pbs.twimg.com/profile_images/1550409928740839425/F_REEzQ9_400x400.jpg", link: "https://drive.google.com/drive/folders/1mO3m2d9yAutNVyQNTYFk64UauokrWWO7" },
-          { title: "DSA", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTy5c_SvC6iawJl6SMrU_iDjFtmKodQ9LKFcmh8VFEnUQWkGsdSHikBWarXnoLR6YfBLgo&usqp=CAU", link: "https://github.com/Deeksha2501/Data-Structures-and-Algorithms-Notes" }
+          { title: "Git", image: "https://michster.de/content/images/size/w2000/2019/07/wasistgit_michster.png", link: "https://drive.google.com/file/d/1Ij3wlYHqb1PW_pI1JcFVKjVM7ElteR0w/view?usp=drive_link" ,link1: "https://youtu.be/S7XpTAnSDL4?feature=shared" },
+          { title: "Javascript", image: "https://www.codewithharry.com/img/notes/js.webp", link: "https://cwh-full-next-space.fra1.cdn.digitaloceanspaces.com/notes/JS_Chapterwise_Notes.pdf",link1: "https://youtu.be/g7T23Xzys-A?feature=shared"  },
+          { title: "TypeScript", image: "https://images.ctfassets.net/23aumh6u8s0i/1GpPK36EMwOOZZcQPV4YRD/8acc95b8c3639be1be1d445e5e762dae/typescript", link: "https://drive.google.com/file/d/1ICR1Ttb0seB2QO38NVsu0CUcvW37AZH7/view?usp=sharing",link1: "https://youtu.be/4XLM2ZvtnlA?feature=shared" },
+          { title: "ReactJs", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQij9uDL_BAEPp_gqSI8ug_CJCjLdyw4oLDUw&s", link: "https://drive.google.com/file/d/1688SoMN4OX1hQBXxjiRuOicjH5idIjwO/view?usp=sharing",link1: "https://youtu.be/dCLhUialKPQ?feature=shared" },
+          { title: "NextJs", image: "https://images.ctfassets.net/23aumh6u8s0i/6pjUKboBuFLvCKkE3esaFA/5f2101d6d2add5c615db5e98a553fc44/nextjs.jpeg", link: "https://drive.google.com/file/d/1_XclkmisTVxzsNA2lK1FCbZxm5CTmNdt/view?usp=drive_link",link1: "https://youtu.be/Zq5fmkH0T78?feature=shared" },
+          { title: "TailwindCSS", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSDKn3vA2YUbXzN0ZC3gALWJ08gJN-Drl15w&s", link: "https://drive.google.com/file/d/19j1vI_rQR41qgWUMQ79_rxnWIOkDklM_/view?usp=drive_link" ,link1: "https://www.youtube.com/watch?v=6biMWgD6_JY"},
+          { title: "Backend", image: "https://images.seeklogo.com/logo-png/48/1/mongodb-logo-png_seeklogo-481256.png", link: "https://drive.google.com/file/d/14l6w3xbbr6M9Skk3fvRqIgGKFi3VomYC/view?usp=sharing" ,link1: "https://youtu.be/rOpEN1JDaD0?feature=shared"},
+          { title: "CN,OS,DBMS", image: "https://pbs.twimg.com/profile_images/1550409928740839425/F_REEzQ9_400x400.jpg", link: "https://drive.google.com/drive/folders/1mO3m2d9yAutNVyQNTYFk64UauokrWWO7" ,link1: "https://youtu.be/5CK8TKmc8M0?feature=shared"},
+          
           
         ].map((item, index) => (
           <div key={index} className="p-6 flex justify-center">
             <div className="w-full max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
               <div className="flex flex-col items-center p-6">
-                <img className="mb-3 w-24 h-24 rounded-full shadow-lg" src={item.image} alt={item.title} />
+                <img className="mb-3 w-25 h-24 rounded-full shadow-lg" src={item.image} alt={item.title} />
                 <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">{item.title}</h5>
-                <span className="text-sm text-gray-500 dark:text-gray-400">Get the Notes</span>
-                <div className="grid mt-4">
-                  <a
-                    className="inline-block text-white bg-blue-500 rounded-full px-3 py-2 text-sm font-semibold mr-2 my-1 cursor-pointer hover:bg-blue-700 text-center"
-                    href={item.link}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    Download
-                  </a>
-                </div>
+                <span className="text-sm text-gray-500 dark:text-gray-400">Learn here</span>
+                <div className="grid grid-cols-2 gap-2 mt-4">
+  <a
+    className="text-white bg-blue-500 rounded-full px-3 py-2 text-sm font-semibold cursor-pointer hover:bg-blue-700 text-center"
+    href={item.link1}
+    target="_blank"
+    rel="noreferrer"
+  >
+    Watch
+  </a>
+  <a
+    className="text-white bg-blue-500 rounded-full px-3 py-2 text-sm font-semibold cursor-pointer hover:bg-blue-700 text-center"
+    href={item.link}
+    target="_blank"
+    rel="noreferrer"
+  >
+    Download
+  </a>
+</div>
+
               </div>
             </div>
           </div>
