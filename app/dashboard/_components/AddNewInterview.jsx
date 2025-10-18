@@ -29,54 +29,107 @@ function AddNewInterview() {
   const { user } = useUser();
 
   const onSubmit = async (e) => {
-    setLoading(true);
-    e.preventDefault();
-    console.log(jobPosition, jobDesc, jobExperience);
+  e.preventDefault();
+  setLoading(true);
 
-    const InputPrompt = `Job position:${jobPosition},Job Description:${jobDesc},Years of Experience:${jobExperience},Depends on Job Position,Job Description & Years of Experience give me ${process.env.NEXT_PUBLIC_INTERVIEW_QUESTION_COUNT} interview questions along with Answer in json format,give us question and answer field in json`;
+  console.log(jobPosition, jobDesc, jobExperience);
 
-    try {
-      const result = await chatSession.sendMessage(InputPrompt);
-      let MockJsonResp = result.response.text();
+  const InputPrompt = `
+You are a JSON-only API. Respond ONLY with valid JSON (no markdown, no explanations, no backticks).
 
-      // Log the raw response to check its content
-      console.log("Raw Response:", MockJsonResp);
+Each item must have:
+{
+  "question": "Given your experience in ${jobPosition}, can you describe a challenging project or situation you handled related to ${jobDesc}? Focus on the obstacles, your approach, and the outcome.",
+  "answer": "In my previous role at [Previous Company], I faced a challenge involving [...]. I overcame it by [...], leading to measurable improvements such as [...]."
+}
 
-      // Clean up response to ensure it's JSON
-      MockJsonResp = MockJsonResp.replace(/```json/g, "")
-                                  .replace(/```/g, "")
-                                  .replace(/\n/g, "")
-                                  .trim();
+Now, based on:
+- Job Position: ${jobPosition}
+- Job Description: ${jobDesc}
+- Years of Experience: ${jobExperience}
 
-      // Attempt to parse JSON response
-      const parsedResponse = JSON.parse(MockJsonResp);
-      setJsonResponse(parsedResponse);
+Generate ${process.env.NEXT_PUBLIC_INTERVIEW_QUESTION_COUNT} realistic and detailed interview question-answer pairs following this structure.
+Output must be a **valid JSON array only**, e.g.:
+[
+  {"question": "...", "answer": "..."},
+  {"question": "...", "answer": "..."}
+]
+Ensure that all quotes and special characters are escaped properly.
+`;
 
-      if (parsedResponse) {
-        const resp = await db.insert(MockInterview).values({
-          mockId: uuidv4(),
-          jsonMockResp: MockJsonResp,
-          jobPosition: jobPosition,
-          jobDesc: jobDesc,
-          jobExperience: jobExperience,
-          createdBy: user?.primaryEmailAddress?.emailAddress,
-          createdAt: moment().format('DD-MM-yyyy'),
-        }).returning({ mockId: MockInterview.mockId });
+  try {
+    // 1️⃣ Send prompt to model
+    const result = await chatSession.sendMessage(InputPrompt);
+    let rawResponseText = result?.response?.text?.() || result?.response || "";
 
-        console.log("Inserted ID:", resp);
-        if (resp) {
-          setOpenDialog(false);
-          router.push('/dashboard/interview/' + resp[0]?.mockId);
-        }
-      } else {
-        console.log("Error: No valid JSON response received.");
-      }
-    } catch (error) {
-      console.error("Error occurred while processing:", error);
-    } finally {
+    console.log("Raw Response:", rawResponseText);
+
+    // 2️⃣ Remove markdown code fences (```json, ```)
+    let cleanResponse = rawResponseText.replace(/```json|```/g, "").trim();
+
+    // 3️⃣ Try extracting JSON array or object
+    let jsonMatch = cleanResponse.match(/\[[\s\S]*\]/);
+    if (!jsonMatch) jsonMatch = cleanResponse.match(/\{[\s\S]*\}/);
+
+    if (!jsonMatch) {
+      console.error("Error: No JSON detected in model response.");
+      setJsonResponse(null);
       setLoading(false);
+      return;
     }
-  };
+
+    let finalJsonString = jsonMatch[0];
+
+    // 🧹 4️⃣ Clean invalid JSON issues (quotes, newlines, etc.)
+    finalJsonString = finalJsonString
+  .replace(/[\u201C\u201D]/g, '"')   // smart quotes
+  .replace(/[\u2018\u2019]/g, "'")   // smart apostrophes
+  .replace(/\\(?!["\\/bfnrtu])/g, ""); // remove any invalid backslashes
+// ✅ Do NOT manually escape newlines or tabs
+
+    // 5️⃣ Try parsing the cleaned JSON
+    let parsedResponse;
+    try {
+      parsedResponse = JSON.parse(finalJsonString);
+    } catch (err) {
+      console.error("❌ JSON parse error:", err.message);
+      console.error("🚨 Failing JSON snippet:", finalJsonString.slice(0, 500));
+      setJsonResponse(null);
+      setLoading(false);
+      return;
+    }
+
+    // ✅ 6️⃣ Save parsed data
+    setJsonResponse(parsedResponse);
+
+    const resp = await db
+      .insert(MockInterview)
+      .values({
+        mockId: uuidv4(),
+        jsonMockResp: finalJsonString,
+        jobPosition,
+        jobDesc,
+        jobExperience,
+        createdBy: user?.primaryEmailAddress?.emailAddress,
+        createdAt: moment().format("DD-MM-YYYY"),
+      })
+      .returning({ mockId: MockInterview.mockId });
+
+    console.log("Inserted ID:", resp);
+
+    if (resp?.[0]?.mockId) {
+      setOpenDialog(false);
+      router.push(`/dashboard/interview/${resp[0].mockId}`);
+    } else {
+      console.log("Error: No valid JSON response saved.");
+    }
+  } catch (error) {
+    console.error("Error during interview generation:", error);
+  } finally {
+    setLoading(false);
+  }
+};
+
 
   return (
     <div>
